@@ -20,6 +20,7 @@ mixin _$BaseUiState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
+    required TResult Function() empty,
     required TResult Function(Exception error) error,
     required TResult Function(T data) success,
   }) =>
@@ -28,6 +29,7 @@ mixin _$BaseUiState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
+    TResult? Function()? empty,
     TResult? Function(Exception error)? error,
     TResult? Function(T data)? success,
   }) =>
@@ -36,6 +38,7 @@ mixin _$BaseUiState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
+    TResult Function()? empty,
     TResult Function(Exception error)? error,
     TResult Function(T data)? success,
     required TResult orElse(),
@@ -45,6 +48,7 @@ mixin _$BaseUiState<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle<T> value) idle,
     required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Empty<T> value) empty,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Success<T> value) success,
   }) =>
@@ -53,6 +57,7 @@ mixin _$BaseUiState<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle<T> value)? idle,
     TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Empty<T> value)? empty,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Success<T> value)? success,
   }) =>
@@ -61,6 +66,7 @@ mixin _$BaseUiState<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle<T> value)? idle,
     TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Empty<T> value)? empty,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Success<T> value)? success,
     required TResult orElse(),
@@ -124,6 +130,7 @@ class _$_Idle<T> implements _Idle<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
+    required TResult Function() empty,
     required TResult Function(Exception error) error,
     required TResult Function(T data) success,
   }) {
@@ -135,6 +142,7 @@ class _$_Idle<T> implements _Idle<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
+    TResult? Function()? empty,
     TResult? Function(Exception error)? error,
     TResult? Function(T data)? success,
   }) {
@@ -146,6 +154,7 @@ class _$_Idle<T> implements _Idle<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
+    TResult Function()? empty,
     TResult Function(Exception error)? error,
     TResult Function(T data)? success,
     required TResult orElse(),
@@ -161,6 +170,7 @@ class _$_Idle<T> implements _Idle<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle<T> value) idle,
     required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Empty<T> value) empty,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Success<T> value) success,
   }) {
@@ -172,6 +182,7 @@ class _$_Idle<T> implements _Idle<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle<T> value)? idle,
     TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Empty<T> value)? empty,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Success<T> value)? success,
   }) {
@@ -183,6 +194,7 @@ class _$_Idle<T> implements _Idle<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle<T> value)? idle,
     TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Empty<T> value)? empty,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Success<T> value)? success,
     required TResult orElse(),
@@ -238,6 +250,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
+    required TResult Function() empty,
     required TResult Function(Exception error) error,
     required TResult Function(T data) success,
   }) {
@@ -249,6 +262,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
+    TResult? Function()? empty,
     TResult? Function(Exception error)? error,
     TResult? Function(T data)? success,
   }) {
@@ -260,6 +274,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
+    TResult Function()? empty,
     TResult Function(Exception error)? error,
     TResult Function(T data)? success,
     required TResult orElse(),
@@ -275,6 +290,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle<T> value) idle,
     required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Empty<T> value) empty,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Success<T> value) success,
   }) {
@@ -286,6 +302,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle<T> value)? idle,
     TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Empty<T> value)? empty,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Success<T> value)? success,
   }) {
@@ -297,6 +314,7 @@ class _$_Loading<T> implements _Loading<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle<T> value)? idle,
     TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Empty<T> value)? empty,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Success<T> value)? success,
     required TResult orElse(),
@@ -310,6 +328,125 @@ class _$_Loading<T> implements _Loading<T> {
 
 abstract class _Loading<T> implements BaseUiState<T> {
   const factory _Loading() = _$_Loading<T>;
+}
+
+/// @nodoc
+abstract class _$$_EmptyCopyWith<T, $Res> {
+  factory _$$_EmptyCopyWith(
+          _$_Empty<T> value, $Res Function(_$_Empty<T>) then) =
+      __$$_EmptyCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$_EmptyCopyWithImpl<T, $Res>
+    extends _$BaseUiStateCopyWithImpl<T, $Res, _$_Empty<T>>
+    implements _$$_EmptyCopyWith<T, $Res> {
+  __$$_EmptyCopyWithImpl(_$_Empty<T> _value, $Res Function(_$_Empty<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Empty<T> implements _Empty<T> {
+  const _$_Empty();
+
+  @override
+  String toString() {
+    return 'BaseUiState<$T>.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Empty<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() idle,
+    required TResult Function() loading,
+    required TResult Function() empty,
+    required TResult Function(Exception error) error,
+    required TResult Function(T data) success,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? idle,
+    TResult? Function()? loading,
+    TResult? Function()? empty,
+    TResult? Function(Exception error)? error,
+    TResult? Function(T data)? success,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? idle,
+    TResult Function()? loading,
+    TResult Function()? empty,
+    TResult Function(Exception error)? error,
+    TResult Function(T data)? success,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Idle<T> value) idle,
+    required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_Error<T> value) error,
+    required TResult Function(_Success<T> value) success,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Idle<T> value)? idle,
+    TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Empty<T> value)? empty,
+    TResult? Function(_Error<T> value)? error,
+    TResult? Function(_Success<T> value)? success,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Idle<T> value)? idle,
+    TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_Error<T> value)? error,
+    TResult Function(_Success<T> value)? success,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Empty<T> implements BaseUiState<T> {
+  const factory _Empty() = _$_Empty<T>;
 }
 
 /// @nodoc
@@ -377,6 +514,7 @@ class _$_Error<T> implements _Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
+    required TResult Function() empty,
     required TResult Function(Exception error) error,
     required TResult Function(T data) success,
   }) {
@@ -388,6 +526,7 @@ class _$_Error<T> implements _Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
+    TResult? Function()? empty,
     TResult? Function(Exception error)? error,
     TResult? Function(T data)? success,
   }) {
@@ -399,6 +538,7 @@ class _$_Error<T> implements _Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
+    TResult Function()? empty,
     TResult Function(Exception error)? error,
     TResult Function(T data)? success,
     required TResult orElse(),
@@ -414,6 +554,7 @@ class _$_Error<T> implements _Error<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle<T> value) idle,
     required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Empty<T> value) empty,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Success<T> value) success,
   }) {
@@ -425,6 +566,7 @@ class _$_Error<T> implements _Error<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle<T> value)? idle,
     TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Empty<T> value)? empty,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Success<T> value)? success,
   }) {
@@ -436,6 +578,7 @@ class _$_Error<T> implements _Error<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle<T> value)? idle,
     TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Empty<T> value)? empty,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Success<T> value)? success,
     required TResult orElse(),
@@ -523,6 +666,7 @@ class _$_Success<T> implements _Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
     required TResult Function() loading,
+    required TResult Function() empty,
     required TResult Function(Exception error) error,
     required TResult Function(T data) success,
   }) {
@@ -534,6 +678,7 @@ class _$_Success<T> implements _Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? idle,
     TResult? Function()? loading,
+    TResult? Function()? empty,
     TResult? Function(Exception error)? error,
     TResult? Function(T data)? success,
   }) {
@@ -545,6 +690,7 @@ class _$_Success<T> implements _Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
     TResult Function()? loading,
+    TResult Function()? empty,
     TResult Function(Exception error)? error,
     TResult Function(T data)? success,
     required TResult orElse(),
@@ -560,6 +706,7 @@ class _$_Success<T> implements _Success<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(_Idle<T> value) idle,
     required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Empty<T> value) empty,
     required TResult Function(_Error<T> value) error,
     required TResult Function(_Success<T> value) success,
   }) {
@@ -571,6 +718,7 @@ class _$_Success<T> implements _Success<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Idle<T> value)? idle,
     TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Empty<T> value)? empty,
     TResult? Function(_Error<T> value)? error,
     TResult? Function(_Success<T> value)? success,
   }) {
@@ -582,6 +730,7 @@ class _$_Success<T> implements _Success<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Idle<T> value)? idle,
     TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Empty<T> value)? empty,
     TResult Function(_Error<T> value)? error,
     TResult Function(_Success<T> value)? success,
     required TResult orElse(),

@@ -12,7 +12,7 @@ class ScreenCharacterDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-      create: (_) => getIt<CharacterDetailBloc>()..add(CharacterDetailEvent.fetch(idCharacter: idCharacter)),
+      create: (_) => getIt<CharacterDetailBloc>(param1: idCharacter)..add(const CharacterDetailEvent.fetch()),
       child: const ViewCharacterDetail()
   );
 }

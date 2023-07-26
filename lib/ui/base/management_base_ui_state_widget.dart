@@ -18,6 +18,7 @@ class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget>
   Widget build(BuildContext context) => state.when(
       idle: () => _idleWidget(),
       loading: () => Center(child: _loadingWidget()),
+      empty: () => const Center(child: Text("No data to show"),),
       error: (exception) => Center(child: _errorWidget(exception)),
       success: (data) => _successWidget(data));
 

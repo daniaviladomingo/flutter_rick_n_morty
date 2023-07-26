@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharacterDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int idCharacter) fetch,
+    required TResult Function() fetch,
     required TResult Function() onFavoriteItemClick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int idCharacter)? fetch,
+    TResult? Function()? fetch,
     TResult? Function()? onFavoriteItemClick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int idCharacter)? fetch,
+    TResult Function()? fetch,
     TResult Function()? onFavoriteItemClick,
     required TResult orElse(),
   }) =>
@@ -79,8 +79,6 @@ class _$CharacterDetailEventCopyWithImpl<$Res,
 abstract class _$$_FetchCopyWith<$Res> {
   factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
       __$$_FetchCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int idCharacter});
 }
 
 /// @nodoc
@@ -89,79 +87,54 @@ class __$$_FetchCopyWithImpl<$Res>
     implements _$$_FetchCopyWith<$Res> {
   __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? idCharacter = null,
-  }) {
-    return _then(_$_Fetch(
-      idCharacter: null == idCharacter
-          ? _value.idCharacter
-          : idCharacter // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Fetch implements _Fetch {
-  const _$_Fetch({required this.idCharacter});
-
-  @override
-  final int idCharacter;
+  const _$_Fetch();
 
   @override
   String toString() {
-    return 'CharacterDetailEvent.fetch(idCharacter: $idCharacter)';
+    return 'CharacterDetailEvent.fetch()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Fetch &&
-            (identical(other.idCharacter, idCharacter) ||
-                other.idCharacter == idCharacter));
+        (other.runtimeType == runtimeType && other is _$_Fetch);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, idCharacter);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_FetchCopyWith<_$_Fetch> get copyWith =>
-      __$$_FetchCopyWithImpl<_$_Fetch>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int idCharacter) fetch,
+    required TResult Function() fetch,
     required TResult Function() onFavoriteItemClick,
   }) {
-    return fetch(idCharacter);
+    return fetch();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int idCharacter)? fetch,
+    TResult? Function()? fetch,
     TResult? Function()? onFavoriteItemClick,
   }) {
-    return fetch?.call(idCharacter);
+    return fetch?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int idCharacter)? fetch,
+    TResult Function()? fetch,
     TResult Function()? onFavoriteItemClick,
     required TResult orElse(),
   }) {
     if (fetch != null) {
-      return fetch(idCharacter);
+      return fetch();
     }
     return orElse();
   }
@@ -199,12 +172,7 @@ class _$_Fetch implements _Fetch {
 }
 
 abstract class _Fetch implements CharacterDetailEvent {
-  const factory _Fetch({required final int idCharacter}) = _$_Fetch;
-
-  int get idCharacter;
-  @JsonKey(ignore: true)
-  _$$_FetchCopyWith<_$_Fetch> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Fetch() = _$_Fetch;
 }
 
 /// @nodoc
@@ -245,7 +213,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int idCharacter) fetch,
+    required TResult Function() fetch,
     required TResult Function() onFavoriteItemClick,
   }) {
     return onFavoriteItemClick();
@@ -254,7 +222,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int idCharacter)? fetch,
+    TResult? Function()? fetch,
     TResult? Function()? onFavoriteItemClick,
   }) {
     return onFavoriteItemClick?.call();
@@ -263,7 +231,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int idCharacter)? fetch,
+    TResult Function()? fetch,
     TResult Function()? onFavoriteItemClick,
     required TResult orElse(),
   }) {

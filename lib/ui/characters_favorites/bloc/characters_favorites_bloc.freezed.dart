@@ -85,12 +85,19 @@ class __$$_FetchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Fetch implements _Fetch {
+class _$_Fetch with DiagnosticableTreeMixin implements _Fetch {
   const _$_Fetch();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersFavoritesEvent.fetch()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'CharactersFavoritesEvent.fetch'));
   }
 
   @override
@@ -255,15 +262,23 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial({required this.characters});
 
   @override
   final BaseUiState<List<Character>> characters;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CharactersFavoritesState(characters: $characters)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CharactersFavoritesState'))
+      ..add(DiagnosticsProperty('characters', characters));
   }
 
   @override
