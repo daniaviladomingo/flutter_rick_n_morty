@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty/ui/base/base_bloc_state.dart';
 import 'package:rick_and_morty/ui/base/base_ui_state.dart';
 
 class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget>
@@ -18,7 +17,7 @@ class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget>
   Widget build(BuildContext context) => state.when(
       idle: () => _idleWidget(),
       loading: () => Center(child: _loadingWidget()),
-      empty: () => const Center(child: Text("No data to show"),),
+      empty: () => const Center(child: Text("No data to show", style: TextStyle(fontSize: 20),)),
       error: (exception) => Center(child: _errorWidget(exception)),
       success: (data) => _successWidget(data));
 

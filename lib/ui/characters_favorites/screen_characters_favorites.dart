@@ -37,7 +37,7 @@ class ViewCharactersFavorites extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   final character = characters[index];
                   return GestureDetector(
-                      onTap: () => context.goNamed(AppScreens.characterDetail.name, pathParameters: {'id_character': character.id.toString()}),
+                      onTap: () => context.goNamed(AppScreens.characterDetail2.name, pathParameters: {'id_character': character.id.toString()}),
                       child: ViewCharacter(character: character));
                 },
               ),
@@ -46,5 +46,4 @@ class ViewCharactersFavorites extends StatelessWidget {
           },
         ));
   }
-
 }

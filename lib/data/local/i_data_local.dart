@@ -6,7 +6,7 @@ abstract class IDataLocal {
 
   Future<void> removeCharacterFromFavorite(int idCharacter);
 
-  Future<List<Character>> getFavoritesCharacters();
+  Stream<List<Character>> getFavoritesCharacters();
 
   Future<bool> isCharacterFavorite(int idCharacter);
 }

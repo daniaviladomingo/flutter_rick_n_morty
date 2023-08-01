@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:isar/isar.dart';
 import 'package:rick_and_morty/common/mapper.dart';
 import 'package:rick_and_morty/data/local/i_data_local.dart';
@@ -22,16 +21,13 @@ class DataLocalImp extends IDataLocal {
       });
 
   @override
-  Future<List<Character>> getFavoritesCharacters() async {
-    final characters = await isar.dbCharacters.where().findAll();
-    final charactersMaps = characters.map((e) => characterDbMapper.map(e));
-    for (var element in charactersMaps) {
-      debugPrint(element.toString());
-    }
-    // Completer<Iterable<Character>>().complete(charactersMaps);
-
-    return Future<List<Character>>.value(charactersMaps.toList());
-  }
+  Stream<List<Character>> getFavoritesCharacters() =>
+    isar
+        .dbCharacters
+        .where()
+        .build()
+        .watch(fireImmediately: true)
+        .map((event) => event.map((e) => characterDbMapper.map(e)).toList());
 
   @override
   Future<void> removeCharacterFromFavorite(int idCharacter) =>

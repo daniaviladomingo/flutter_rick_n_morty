@@ -17,6 +17,7 @@ import 'package:rick_and_morty/data_remote/model/mapper/api_character_mapper.dar
 import 'package:rick_and_morty/di/named_instances.dart';
 import 'package:rick_and_morty/domain/i_repository.dart';
 import 'package:rick_and_morty/domain/interactors/base/base_use_case_future.dart';
+import 'package:rick_and_morty/domain/interactors/base/base_use_case_stream.dart';
 import 'package:rick_and_morty/domain/interactors/get_character_detail_use_case.dart';
 import 'package:rick_and_morty/domain/interactors/get_characters_favorites_use_case.dart';
 import 'package:rick_and_morty/domain/interactors/get_characters_use_case.dart';
@@ -37,7 +38,8 @@ Future<void> initLocator() async {
   );
   // Bloc
   GetIt.I.registerFactory(() => CharactersBloc(getCharactersUseCase: getIt<BaseUseCaseFuture<void, List<Character>>>(instanceName: useCaseCharacters)));
-  GetIt.I.registerFactory(() => CharactersFavoritesBloc(getCharactersFavoritesUseCase: getIt<BaseUseCaseFuture<void, List<Character>>>(instanceName: useCaseCharactersFavorites)));
+  GetIt.I.registerFactory(() => CharactersFavoritesBloc(
+      getCharactersFavoritesStreamUseCase: getIt<BaseUseCaseStream<void, List<Character>>>()));
   GetIt.I.registerFactoryParam<CharacterDetailBloc, int, void>((idCharacter,_) =>
               CharacterDetailBloc(
                 getCharacterDetailUseCase: getIt<BaseUseCaseFuture<int, CharacterDetail>>(),
@@ -48,7 +50,7 @@ Future<void> initLocator() async {
 
   // UsesCases
   GetIt.I.registerFactory<BaseUseCaseFuture<void, List<Character>>>(() => GetCharactersUseCase(repository: getIt<IRepository>()), instanceName: useCaseCharacters);
-  GetIt.I.registerFactory<BaseUseCaseFuture<void, List<Character>>>(() => GetCharactersFavoritesUseCase(repository: getIt<IRepository>()), instanceName: useCaseCharactersFavorites);
+  GetIt.I.registerFactory<BaseUseCaseStream<void, List<Character>>>(() => GetCharactersFavoritesStreamUseCase(repository: getIt<IRepository>()));
   GetIt.I.registerFactory<BaseUseCaseFuture<int, CharacterDetail>>(()=>  GetCharacterDetailUseCase(repository: getIt<IRepository>()));
   GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => SwitchCharacterFavoriteUseCase(repository: getIt<IRepository>()), instanceName: useCaseSwitchCharacterFavorite);
   GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => IsCharacterFavoriteUseCase(repository: getIt<IRepository>()), instanceName: useCaseIsCharacterFavorite);

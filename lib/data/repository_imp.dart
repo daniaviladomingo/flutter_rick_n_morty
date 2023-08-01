@@ -17,7 +17,7 @@ class RepositoryImp extends IRepository {
   Future<void> addCharacterToFavorite(CharacterDetail character) => dataLocal.addCharacterToFavorite(character);
 
   @override
-  Future<List<Character>> getCharactersFavorites() => dataLocal.getFavoritesCharacters();
+  Stream<List<Character>> getCharactersFavorites() => dataLocal.getFavoritesCharacters();
 
   @override
   Future<void> removeCharacterFromFavorite(int idCharacter) => dataLocal.removeCharacterFromFavorite(idCharacter);
@@ -27,6 +27,4 @@ class RepositoryImp extends IRepository {
 
   @override
   Future<bool> isCharacterFavorite(int idCharacter) => dataLocal.isCharacterFavorite(idCharacter);
-
-
 }
