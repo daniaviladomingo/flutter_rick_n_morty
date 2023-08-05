@@ -24,7 +24,7 @@ class CharacterDetailBloc extends Bloc<CharacterDetailEvent, CharacterDetailStat
   }) : super(const CharacterDetailState(characterDetail: BaseUiState.idle(), isFavorite: BaseUiState.idle())) {
     on<CharacterDetailEvent>((event, emit) async {
       await event.when(
-          fetch: () => _fetch(emit),
+          init: () => _fetch(emit),
           onFavoriteItemClick: () => _onFavoriteItemClick(emit)
       );
     });

@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharacterDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() init,
     required TResult Function() onFavoriteItemClick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
+    TResult? Function()? init,
     TResult? Function()? onFavoriteItemClick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? init,
     TResult Function()? onFavoriteItemClick,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_Init value) init,
     required TResult Function(_OnFavoriteItemClick value) onFavoriteItemClick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Init value)? init,
     TResult? Function(_OnFavoriteItemClick value)? onFavoriteItemClick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Fetch value)? fetch,
+    TResult Function(_Init value)? init,
     TResult Function(_OnFavoriteItemClick value)? onFavoriteItemClick,
     required TResult orElse(),
   }) =>
@@ -76,33 +76,33 @@ class _$CharacterDetailEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchCopyWith<$Res> {
-  factory _$$_FetchCopyWith(_$_Fetch value, $Res Function(_$_Fetch) then) =
-      __$$_FetchCopyWithImpl<$Res>;
+abstract class _$$_InitCopyWith<$Res> {
+  factory _$$_InitCopyWith(_$_Init value, $Res Function(_$_Init) then) =
+      __$$_InitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchCopyWithImpl<$Res>
-    extends _$CharacterDetailEventCopyWithImpl<$Res, _$_Fetch>
-    implements _$$_FetchCopyWith<$Res> {
-  __$$_FetchCopyWithImpl(_$_Fetch _value, $Res Function(_$_Fetch) _then)
+class __$$_InitCopyWithImpl<$Res>
+    extends _$CharacterDetailEventCopyWithImpl<$Res, _$_Init>
+    implements _$$_InitCopyWith<$Res> {
+  __$$_InitCopyWithImpl(_$_Init _value, $Res Function(_$_Init) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Fetch implements _Fetch {
-  const _$_Fetch();
+class _$_Init implements _Init {
+  const _$_Init();
 
   @override
   String toString() {
-    return 'CharacterDetailEvent.fetch()';
+    return 'CharacterDetailEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Fetch);
+        (other.runtimeType == runtimeType && other is _$_Init);
   }
 
   @override
@@ -111,30 +111,30 @@ class _$_Fetch implements _Fetch {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() init,
     required TResult Function() onFavoriteItemClick,
   }) {
-    return fetch();
+    return init();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
+    TResult? Function()? init,
     TResult? Function()? onFavoriteItemClick,
   }) {
-    return fetch?.call();
+    return init?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? init,
     TResult Function()? onFavoriteItemClick,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch();
+    if (init != null) {
+      return init();
     }
     return orElse();
   }
@@ -142,37 +142,37 @@ class _$_Fetch implements _Fetch {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_Init value) init,
     required TResult Function(_OnFavoriteItemClick value) onFavoriteItemClick,
   }) {
-    return fetch(this);
+    return init(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Init value)? init,
     TResult? Function(_OnFavoriteItemClick value)? onFavoriteItemClick,
   }) {
-    return fetch?.call(this);
+    return init?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Fetch value)? fetch,
+    TResult Function(_Init value)? init,
     TResult Function(_OnFavoriteItemClick value)? onFavoriteItemClick,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch(this);
+    if (init != null) {
+      return init(this);
     }
     return orElse();
   }
 }
 
-abstract class _Fetch implements CharacterDetailEvent {
-  const factory _Fetch() = _$_Fetch;
+abstract class _Init implements CharacterDetailEvent {
+  const factory _Init() = _$_Init;
 }
 
 /// @nodoc
@@ -213,7 +213,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetch,
+    required TResult Function() init,
     required TResult Function() onFavoriteItemClick,
   }) {
     return onFavoriteItemClick();
@@ -222,7 +222,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetch,
+    TResult? Function()? init,
     TResult? Function()? onFavoriteItemClick,
   }) {
     return onFavoriteItemClick?.call();
@@ -231,7 +231,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetch,
+    TResult Function()? init,
     TResult Function()? onFavoriteItemClick,
     required TResult orElse(),
   }) {
@@ -244,7 +244,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_Init value) init,
     required TResult Function(_OnFavoriteItemClick value) onFavoriteItemClick,
   }) {
     return onFavoriteItemClick(this);
@@ -253,7 +253,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_Init value)? init,
     TResult? Function(_OnFavoriteItemClick value)? onFavoriteItemClick,
   }) {
     return onFavoriteItemClick?.call(this);
@@ -262,7 +262,7 @@ class _$_OnFavoriteItemClick implements _OnFavoriteItemClick {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Fetch value)? fetch,
+    TResult Function(_Init value)? init,
     TResult Function(_OnFavoriteItemClick value)? onFavoriteItemClick,
     required TResult orElse(),
   }) {

@@ -17,3 +17,19 @@ abstract class BaseUseCaseFuture<IN, OUT> {
   @protected
   Future<OUT> block(IN param);
 }
+
+abstract class BaseUseCaseFutureOUT<OUT> {
+  Future<Result<OUT>> invoke() async {
+
+    try {
+      return Result.success(data: await block());
+    } on Error catch (e) {
+      return Result.error(error: Exception(e.stackTrace));
+    } on Exception catch (e) {
+      return Result.error(error: e);
+    }
+  }
+
+  @protected
+  Future<OUT> block();
+}

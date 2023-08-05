@@ -14,7 +14,7 @@ class ScreenCharacters extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocProvider(
-          create: (_) => getIt<CharactersBloc>()..add(const CharactersEvent.fetch()),
+          create: (_) => getIt<CharactersBloc>()..add(const CharactersEvent.init()),
           child: const ViewCharacters()
       );
 }

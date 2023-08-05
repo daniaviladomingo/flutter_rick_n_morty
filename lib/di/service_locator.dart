@@ -37,9 +37,9 @@ Future<void> initLocator() async {
     directory: (await getApplicationDocumentsDirectory()).path,
   );
   // Bloc
-  GetIt.I.registerFactory(() => CharactersBloc(getCharactersUseCase: getIt<BaseUseCaseFuture<void, List<Character>>>(instanceName: useCaseCharacters)));
+  GetIt.I.registerFactory(() => CharactersBloc(getCharactersUseCase: getIt<BaseUseCaseFutureOUT<List<Character>>>(instanceName: useCaseCharacters)));
   GetIt.I.registerFactory(() => CharactersFavoritesBloc(
-      getCharactersFavoritesStreamUseCase: getIt<BaseUseCaseStream<void, List<Character>>>()));
+      getCharactersFavoritesStreamUseCase: getIt<BaseUseCaseStreamOUT<List<Character>>>()));
   GetIt.I.registerFactoryParam<CharacterDetailBloc, int, void>((idCharacter,_) =>
               CharacterDetailBloc(
                 getCharacterDetailUseCase: getIt<BaseUseCaseFuture<int, CharacterDetail>>(),
@@ -49,8 +49,8 @@ Future<void> initLocator() async {
               ));
 
   // UsesCases
-  GetIt.I.registerFactory<BaseUseCaseFuture<void, List<Character>>>(() => GetCharactersUseCase(repository: getIt<IRepository>()), instanceName: useCaseCharacters);
-  GetIt.I.registerFactory<BaseUseCaseStream<void, List<Character>>>(() => GetCharactersFavoritesStreamUseCase(repository: getIt<IRepository>()));
+  GetIt.I.registerFactory<BaseUseCaseFutureOUT<List<Character>>>(() => GetCharactersUseCase(repository: getIt<IRepository>()), instanceName: useCaseCharacters);
+  GetIt.I.registerFactory<BaseUseCaseStreamOUT<List<Character>>>(() => GetCharactersFavoritesStreamUseCase(repository: getIt<IRepository>()));
   GetIt.I.registerFactory<BaseUseCaseFuture<int, CharacterDetail>>(()=>  GetCharacterDetailUseCase(repository: getIt<IRepository>()));
   GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => SwitchCharacterFavoriteUseCase(repository: getIt<IRepository>()), instanceName: useCaseSwitchCharacterFavorite);
   GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => IsCharacterFavoriteUseCase(repository: getIt<IRepository>()), instanceName: useCaseIsCharacterFavorite);

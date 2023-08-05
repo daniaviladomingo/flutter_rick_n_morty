@@ -12,12 +12,12 @@ part 'characters_favorites_state.dart';
 part 'characters_favorites_bloc.freezed.dart';
 
 class CharactersFavoritesBloc extends Bloc<CharactersFavoritesEvent, CharactersFavoritesState> {
-  final BaseUseCaseStream<void, List<Character>> getCharactersFavoritesStreamUseCase;
+  final BaseUseCaseStreamOUT<List<Character>> getCharactersFavoritesStreamUseCase;
 
   CharactersFavoritesBloc({required this.getCharactersFavoritesStreamUseCase}) : super(const CharactersFavoritesState(characters: BaseUiState.idle())) {
     on<CharactersFavoritesEvent>((event, emit) async {
-      await event.when(fetch: () async {
-        await getCharactersFavoritesStreamUseCase.invoke("").forEach((element) {
+      await event.when(init: () async {
+        await getCharactersFavoritesStreamUseCase.invoke().forEach((element) {
           if (element.isNotEmpty) {
             emit(CharactersFavoritesState(characters: BaseUiState.success(data: element)));
           } else {

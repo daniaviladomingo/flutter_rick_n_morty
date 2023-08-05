@@ -13,7 +13,7 @@ class ScreenCharactersFavorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       BlocProvider(
-          create: (_) => getIt<CharactersFavoritesBloc>()..add(const CharactersFavoritesEvent.fetch()),
+          create: (_) => getIt<CharactersFavoritesBloc>()..add(const CharactersFavoritesEvent.init()),
           child: const ViewCharactersFavorites()
       );
 }
@@ -37,7 +37,7 @@ class ViewCharactersFavorites extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   final character = characters[index];
                   return GestureDetector(
-                      onTap: () => context.goNamed(AppScreens.characterDetail2.name, pathParameters: {'id_character': character.id.toString()}),
+                      onTap: () => context.goNamed(AppScreens.characterDetailFromFavorites.name, pathParameters: {'id_character': character.id.toString()}),
                       child: ViewCharacter(character: character));
                 },
               ),

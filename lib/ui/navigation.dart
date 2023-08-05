@@ -7,7 +7,7 @@ enum AppScreens {
   characters("screen_character"),
   charactersFavorite("screen_characters_favorite"),
   characterDetail("screen_character_detail"),
-  characterDetail2("screen_character_detail2");
+  characterDetailFromFavorites("screen_character_detail_from_favorites");
 
   final String name;
   const AppScreens(this.name);
@@ -34,8 +34,8 @@ final router = GoRouter(
               builder: (context, state) => const ScreenCharactersFavorites(),
               routes: [
                 GoRoute(
-                    path: 'detail2/:id_character',
-                    name: AppScreens.characterDetail2.name,
+                    path: 'detail_from_favorites/:id_character',
+                    name: AppScreens.characterDetailFromFavorites.name,
                     builder: (context, state) {
                       final int characterId = int.parse(state.pathParameters['id_character']!);
                       return ScreenCharacterDetail(idCharacter: characterId);
