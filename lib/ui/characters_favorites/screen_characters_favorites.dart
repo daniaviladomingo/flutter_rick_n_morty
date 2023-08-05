@@ -44,6 +44,7 @@ class ViewCharactersFavorites extends StatelessWidget {
               retry: () {},
             );
           },
-        ));
+        )
+    );
   }
 }

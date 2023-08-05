@@ -27,7 +27,7 @@ class DataLocalImp extends IDataLocal {
         .where()
         .build()
         .watch(fireImmediately: true)
-        .map((event) => event.map((e) => characterDbMapper.map(e)).toList());
+        .map((event) => characterDbMapper.mapList(event));
 
   @override
   Future<void> removeCharacterFromFavorite(int idCharacter) =>
