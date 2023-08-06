@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/di/service_locator.dart';
-import 'package:rick_and_morty/ui/base/management_base_ui_state_widget.dart';
-import 'package:rick_and_morty/ui/characters/screen_characters.dart';
-import 'package:rick_and_morty/ui/characters_favorites/bloc/characters_favorites_bloc.dart';
+import 'package:rick_and_morty/ui/common/management_base_ui_state_widget.dart';
 import 'package:rick_and_morty/ui/navigation.dart';
+import 'package:rick_and_morty/ui/screens/characters/screen_characters.dart';
+import 'package:rick_and_morty/ui/screens/characters_favorites/bloc/characters_favorites_bloc.dart';
 
 class ScreenCharactersFavorites extends StatelessWidget {
   const ScreenCharactersFavorites({super.key});

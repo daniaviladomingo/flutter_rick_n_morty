@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/di/service_locator.dart';
 import 'package:rick_and_morty/domain/model/character.dart';
-import 'package:rick_and_morty/ui/base/management_base_ui_state_widget.dart';
-import 'package:rick_and_morty/ui/characters/bloc/characters_bloc.dart';
+import 'package:rick_and_morty/ui/common/management_base_ui_state_widget.dart';
 import 'package:rick_and_morty/ui/navigation.dart';
+import 'package:rick_and_morty/ui/screens/characters/bloc/characters_bloc.dart';
 
 class ScreenCharacters extends StatelessWidget {
   const ScreenCharacters({super.key});
@@ -44,7 +44,7 @@ class ViewCharacters extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   final character = characters[index];
                   return GestureDetector(
-                      onTap: () => context.goNamed(AppScreens.characterDetail.name, pathParameters: {'id_character': character.id.toString()}),
+                      onTap: () => context.goNamed(AppScreens.characterDetailFromCharacters.name, pathParameters: {'id_character': character.id.toString()}),
                       child: ViewCharacter(character: character));
                 },
               ),

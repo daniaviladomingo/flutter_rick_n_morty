@@ -1,11 +1,10 @@
-import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rick_and_morty/domain/interactors/base/base_use_case_stream.dart';
 import 'package:rick_and_morty/domain/model/character.dart';
-import 'package:rick_and_morty/ui/base/base_ui_state.dart';
+import 'package:rick_and_morty/ui/model/base_ui_state.dart';
 
 part 'characters_favorites_event.dart';
 

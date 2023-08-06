@@ -25,9 +25,9 @@ import 'package:rick_and_morty/domain/interactors/is_character_favorite_use_case
 import 'package:rick_and_morty/domain/interactors/switch_character_favorite_use_case.dart';
 import 'package:rick_and_morty/domain/model/character.dart';
 import 'package:rick_and_morty/domain/model/character_detail.dart';
-import 'package:rick_and_morty/ui/character_detail/bloc/character_detail_bloc.dart';
-import 'package:rick_and_morty/ui/characters/bloc/characters_bloc.dart';
-import 'package:rick_and_morty/ui/characters_favorites/bloc/characters_favorites_bloc.dart';
+import 'package:rick_and_morty/ui/screens/character_detail/bloc/character_detail_bloc.dart';
+import 'package:rick_and_morty/ui/screens/characters/bloc/characters_bloc.dart';
+import 'package:rick_and_morty/ui/screens/characters_favorites/bloc/characters_favorites_bloc.dart';
 
 final getIt = GetIt.instance;
 
