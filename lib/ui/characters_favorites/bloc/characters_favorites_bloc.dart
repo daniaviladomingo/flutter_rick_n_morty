@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,15 +18,19 @@ class CharactersFavoritesBloc extends Bloc<CharactersFavoritesEvent, CharactersF
 
   CharactersFavoritesBloc({required this.getCharactersFavoritesStreamUseCase}) : super(const CharactersFavoritesState(characters: BaseUiState.idle())) {
     on<CharactersFavoritesEvent>((event, emit) async {
-      await event.when(init: () async {
-        await getCharactersFavoritesStreamUseCase.invoke().forEach((element) {
-          if (element.isNotEmpty) {
-            emit(CharactersFavoritesState(characters: BaseUiState.success(data: element)));
-          } else {
-            emit(const CharactersFavoritesState(characters: BaseUiState.empty()));
-          }
-        });
-      });
+      await event.when(
+          init: () async {
+            await emit.onEach(
+                getCharactersFavoritesStreamUseCase.invoke(),
+                onData: (charactersFavorites) {
+                  if (charactersFavorites.isNotEmpty) {
+                    emit(CharactersFavoritesState(characters: BaseUiState.success(data: charactersFavorites)));
+                  } else {
+                    emit(const CharactersFavoritesState(characters: BaseUiState.empty()));
+                  }
+                }
+            );
+          });
     });
   }
 }
