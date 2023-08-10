@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/di/service_locator.dart';
+import 'package:rick_and_morty/generated/l10n.dart';
 import 'package:rick_and_morty/ui/common/management_base_ui_state_widget.dart';
 import 'package:rick_and_morty/ui/navigation.dart';
 import 'package:rick_and_morty/ui/screens/characters/screen_characters.dart';
@@ -26,7 +27,7 @@ class ViewCharactersFavorites extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Characters Favorites'),
+          title: Text(S.of(context).characterFavorites),
         ),
         body: BlocBuilder<CharactersFavoritesBloc, CharactersFavoritesState>(
           builder: (context, state) {

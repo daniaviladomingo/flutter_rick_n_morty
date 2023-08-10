@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/di/service_locator.dart';
 import 'package:rick_and_morty/domain/model/character.dart';
+import 'package:rick_and_morty/generated/l10n.dart';
 import 'package:rick_and_morty/ui/common/management_base_ui_state_widget.dart';
 import 'package:rick_and_morty/ui/navigation.dart';
 import 'package:rick_and_morty/ui/screens/characters/bloc/characters_bloc.dart';
@@ -27,7 +28,7 @@ class ViewCharacters extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Rick & Morty Flutter'),
+          title: Text(S.of(context).rickAndMorty),
           actions: [
             IconButton(
                 onPressed: () => context.goNamed(AppScreens.charactersFavorite.name),

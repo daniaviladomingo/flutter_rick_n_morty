@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "helloWorld": "Hello World!",
+  "title": "Flutter Demo",
+  "characterFavorites": "Characters Favorites",
+  "rickAndMorty": "Rick & Morty Flutter",
+  "noDataToShow" : "No data to show",
+  "anErrorHasOccurred" : "An error has occurred",
+  "tryAgain" : "Try again"
+}

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty/ui/model/base_ui_state.dart';
 
+import '../../generated/l10n.dart';
+
 class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget> extends StatelessWidget {
   final BaseUiState<T> state;
   final SuccessWidget Function(T) successView;
@@ -23,8 +25,8 @@ class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget> extends State
   Widget build(BuildContext context) => state.when(
       idle: () => _idleWidget(),
       loading: () => customLoadingWidget ?? _loadingWidget(),
-      empty: () => customEmptyWidget ?? _emptyWidget(),
-      error: (exception) => customEmptyWidget ?? _errorWidget(exception),
+      empty: () => customEmptyWidget ?? _emptyWidget(context),
+      error: (exception) => customEmptyWidget ?? _errorWidget(context, exception),
       success: (data) => _successWidget(data));
 
   Widget _idleWidget() => const Center();
@@ -33,19 +35,19 @@ class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget> extends State
       child: CircularProgressIndicator()
   );
 
-  Widget _emptyWidget() => const Center(
+  Widget _emptyWidget(BuildContext context) => Center(
       child: Text(
-          "No data to show",
-          style: TextStyle(fontSize: 20)
+          S.of(context).noDataToShow,
+          style: const TextStyle(fontSize: 20)
       )
   );
 
-  Widget _errorWidget(Exception exception) => Center(
+  Widget _errorWidget(BuildContext context, Exception exception) => Center(
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("An error has occurred"),
-            OutlinedButton(onPressed: retry, child: const Text("Try again"))
+            Text(S.of(context).anErrorHasOccurred),
+            OutlinedButton(onPressed: retry, child: Text(S.of(context).tryAgain))
           ]
       )
   );

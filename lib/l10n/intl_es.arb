@@ -1,0 +1,10 @@
+{
+  "@@locale": "es",
+  "helloWorld": "¡Hola Mundo!",
+  "title": "Flutter Demo",
+  "characterFavorites": "Personajes Favoritos",
+  "rickAndMorty": "Rick & Morty Flutter",
+  "noDataToShow" : "Sin datos que mostrar",
+  "anErrorHasOccurred" : "Ha ocurrido un error",
+  "tryAgain" : "Inténtalo de nuevo"
+}
