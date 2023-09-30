@@ -13,21 +13,25 @@ part 'characters_bloc.freezed.dart';
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final BaseUseCaseFutureOUT<List<Character>> getCharactersUseCase;
 
-  CharactersBloc({required this.getCharactersUseCase}) : super(const CharactersState(characters: BaseUiState.idle())) {
+  CharactersBloc({
+    required this.getCharactersUseCase,
+  }) : super(const CharactersState(characters: BaseUiState.idle())) {
     on<CharactersEvent>((event, emit) async {
-      await event.when(init: () async {
-        await _fetch(emit);
-      });
+      await event.when(
+        init: () async {
+          await _fetch(emit);
+        },
+      );
     });
   }
 
   Future<void> _fetch(Emitter<CharactersState> emit) async {
     emit(const CharactersState(characters: BaseUiState.loading()));
     emit(
-        (await getCharactersUseCase.invoke()).when(
-          success: (data) => CharactersState(characters: BaseUiState.success(data: data)),
-          error: (error) => CharactersState(characters: BaseUiState.error(error: error))
-        )
+      (await getCharactersUseCase.invoke()).when(
+        success: (data) => CharactersState(characters: BaseUiState.success(data: data)),
+        error: (error) => CharactersState(characters: BaseUiState.error(error: error)),
+      ),
     );
   }
 }

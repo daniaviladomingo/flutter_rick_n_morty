@@ -20,12 +20,12 @@ class CharacterDetailBloc extends Bloc<CharacterDetailEvent, CharacterDetailStat
     required this.getCharacterDetailUseCase,
     required this.switchCharacterFavorite,
     required this.isCharacterFavoriteUseCase,
-    required this.idCharacter
+    required this.idCharacter,
   }) : super(const CharacterDetailState(characterDetail: BaseUiState.idle(), isFavorite: BaseUiState.idle())) {
     on<CharacterDetailEvent>((event, emit) async {
       await event.when(
-          init: () => _fetch(emit),
-          onFavoriteItemClick: () => _onFavoriteItemClick(emit)
+        init: () => _fetch(emit),
+        onFavoriteItemClick: () => _onFavoriteItemClick(emit),
       );
     });
   }
@@ -33,27 +33,27 @@ class CharacterDetailBloc extends Bloc<CharacterDetailEvent, CharacterDetailStat
   Future<void> _onFavoriteItemClick(Emitter<CharacterDetailState> emit) async {
     emit(state.copyWith(isFavorite: const BaseUiState.loading()));
     emit(
-        (await switchCharacterFavorite.invoke(idCharacter)).when(
-          success: (data) => state.copyWith(isFavorite: BaseUiState.success(data: data)),
-          error: (error) => state.copyWith(isFavorite: BaseUiState.error(error: error))
-        )
+      (await switchCharacterFavorite.invoke(idCharacter)).when(
+        success: (data) => state.copyWith(isFavorite: BaseUiState.success(data: data)),
+        error: (error) => state.copyWith(isFavorite: BaseUiState.error(error: error)),
+      ),
     );
   }
 
   Future<void> _fetch(Emitter<CharacterDetailState> emit) async {
     emit(state.copyWith(characterDetail: const BaseUiState.loading()));
     emit(
-        (await getCharacterDetailUseCase.invoke(idCharacter)).when(
-          success: (data) => state.copyWith(characterDetail: BaseUiState.success(data: data)),
-          error: (error) => state.copyWith(characterDetail: BaseUiState.error(error: error))
-        )
+      (await getCharacterDetailUseCase.invoke(idCharacter)).when(
+        success: (data) => state.copyWith(characterDetail: BaseUiState.success(data: data)),
+        error: (error) => state.copyWith(characterDetail: BaseUiState.error(error: error)),
+      ),
     );
     emit(state.copyWith(isFavorite: const BaseUiState.loading()));
     emit(
-        (await isCharacterFavoriteUseCase.invoke(idCharacter)).when(
-            success: (data) => state.copyWith(isFavorite: BaseUiState.success(data: data)),
-            error: (error) => state.copyWith(isFavorite: BaseUiState.error(error: error))
-        )
+      (await isCharacterFavoriteUseCase.invoke(idCharacter)).when(
+        success: (data) => state.copyWith(isFavorite: BaseUiState.success(data: data)),
+        error: (error) => state.copyWith(isFavorite: BaseUiState.error(error: error)),
+      ),
     );
   }
 }

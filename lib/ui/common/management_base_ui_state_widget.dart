@@ -18,39 +18,40 @@ class ManagementBaseUiStateWidget<T, SuccessWidget extends Widget> extends State
     required this.retry,
     this.customLoadingWidget,
     this.customEmptyWidget,
-    this.customErrorWidget
+    this.customErrorWidget,
   });
 
   @override
   Widget build(BuildContext context) => state.when(
-      idle: () => _idleWidget(),
-      loading: () => customLoadingWidget ?? _loadingWidget(),
-      empty: () => customEmptyWidget ?? _emptyWidget(context),
-      error: (exception) => customEmptyWidget ?? _errorWidget(context, exception),
-      success: (data) => _successWidget(data));
+        idle: () => _idleWidget(),
+        loading: () => customLoadingWidget ?? _loadingWidget(),
+        empty: () => customEmptyWidget ?? _emptyWidget(context),
+        error: (exception) => customEmptyWidget ?? _errorWidget(context, exception),
+        success: (data) => _successWidget(data),
+      );
 
   Widget _idleWidget() => const Center();
 
   Widget _loadingWidget() => const Center(
-      child: CircularProgressIndicator()
-  );
+        child: CircularProgressIndicator(),
+      );
 
   Widget _emptyWidget(BuildContext context) => Center(
-      child: Text(
+        child: Text(
           S.of(context).noDataToShow,
-          style: const TextStyle(fontSize: 20)
-      )
-  );
+          style: const TextStyle(fontSize: 20),
+        ),
+      );
 
   Widget _errorWidget(BuildContext context, Exception exception) => Center(
-      child: Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(S.of(context).anErrorHasOccurred),
-            OutlinedButton(onPressed: retry, child: Text(S.of(context).tryAgain))
-          ]
-      )
-  );
+            OutlinedButton(onPressed: retry, child: Text(S.of(context).tryAgain)),
+          ],
+        ),
+      );
 
   Widget _successWidget(T data) => successView(data);
 }

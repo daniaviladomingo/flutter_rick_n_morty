@@ -17,8 +17,7 @@ class DataRemoteImp extends IDataRemote {
 
   @override
   Future<List<Character>> getCharacters() async {
-    final response = await httpClient
-        .get(Uri.parse('https://rickandmortyapi.com/api/character'));
+    final response = await httpClient.get(Uri.parse('https://rickandmortyapi.com/api/character'));
     final Map<String, dynamic> parsed = jsonDecode(response.body);
     final ApiCharactersResult result = ApiCharactersResult.fromJson(parsed);
     return characterMapper.mapList(result.results);

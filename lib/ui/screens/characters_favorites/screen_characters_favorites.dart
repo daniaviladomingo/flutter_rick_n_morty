@@ -12,11 +12,7 @@ class ScreenCharactersFavorites extends StatelessWidget {
   const ScreenCharactersFavorites({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      BlocProvider(
-          create: (_) => getIt<CharactersFavoritesBloc>()..add(const CharactersFavoritesEvent.init()),
-          child: const ViewCharactersFavorites()
-      );
+  Widget build(BuildContext context) => BlocProvider(create: (_) => getIt<CharactersFavoritesBloc>()..add(const CharactersFavoritesEvent.init()), child: const ViewCharactersFavorites());
 }
 
 class ViewCharactersFavorites extends StatelessWidget {
@@ -25,27 +21,28 @@ class ViewCharactersFavorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(S.of(context).characterFavorites),
-        ),
-        body: BlocBuilder<CharactersFavoritesBloc, CharactersFavoritesState>(
-          builder: (context, state) {
-            return ManagementBaseUiStateWidget(
-              state: state.characters,
-              successView: (characters) => ListView.builder(
-                itemCount: characters.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final character = characters[index];
-                  return GestureDetector(
-                      onTap: () => context.goNamed(AppScreens.characterDetailFromFavorites.name, pathParameters: {'id_character': character.id.toString()}),
-                      child: ViewCharacter(character: character));
-                },
-              ),
-              retry: () {},
-            );
-          },
-        )
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(S.of(context).characterFavorites),
+      ),
+      body: BlocBuilder<CharactersFavoritesBloc, CharactersFavoritesState>(
+        builder: (context, state) {
+          return ManagementBaseUiStateWidget(
+            state: state.characters,
+            successView: (characters) => ListView.builder(
+              itemCount: characters.length,
+              itemBuilder: (BuildContext context, int index) {
+                final character = characters[index];
+                return GestureDetector(
+                  onTap: () => context.goNamed(AppScreens.characterDetailFromFavorites.name, pathParameters: {'id_character': character.id.toString()}),
+                  child: ViewCharacter(character: character),
+                );
+              },
+            ),
+            retry: () {},
+          );
+        },
+      ),
     );
   }
 }

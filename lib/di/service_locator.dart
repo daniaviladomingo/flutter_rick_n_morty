@@ -37,35 +37,23 @@ Future<void> initLocator() async {
     directory: (await getApplicationDocumentsDirectory()).path,
   );
   // Bloc
-  GetIt.I.registerFactory(() => CharactersBloc(
-      getCharactersUseCase: getIt<BaseUseCaseFutureOUT<List<Character>>>(instanceName: useCaseCharacters))
-  );
-  GetIt.I.registerFactory(() => CharactersFavoritesBloc(
-      getCharactersFavoritesStreamUseCase: getIt<BaseUseCaseStreamOUT<List<Character>>>())
-  );
-  GetIt.I.registerFactoryParam<CharacterDetailBloc, int, void>((idCharacter,_) => CharacterDetailBloc(
+  GetIt.I.registerFactory(() => CharactersBloc(getCharactersUseCase: getIt<BaseUseCaseFutureOUT<List<Character>>>(instanceName: useCaseCharacters)));
+  GetIt.I.registerFactory(() => CharactersFavoritesBloc(getCharactersFavoritesStreamUseCase: getIt<BaseUseCaseStreamOUT<List<Character>>>()));
+  GetIt.I.registerFactoryParam<CharacterDetailBloc, int, void>(
+    (idCharacter, _) => CharacterDetailBloc(
       getCharacterDetailUseCase: getIt<BaseUseCaseFuture<int, CharacterDetail>>(),
       switchCharacterFavorite: getIt<BaseUseCaseFuture<int, bool>>(instanceName: useCaseSwitchCharacterFavorite),
-      isCharacterFavoriteUseCase: getIt<BaseUseCaseFuture<int,bool>>(instanceName: useCaseIsCharacterFavorite),
-      idCharacter: idCharacter)
+      isCharacterFavoriteUseCase: getIt<BaseUseCaseFuture<int, bool>>(instanceName: useCaseIsCharacterFavorite),
+      idCharacter: idCharacter,
+    ),
   );
 
   // UsesCases
-  GetIt.I.registerFactory<BaseUseCaseFutureOUT<List<Character>>>(() => GetCharactersUseCase(
-      repository: getIt<IRepository>()), instanceName: useCaseCharacters
-  );
-  GetIt.I.registerFactory<BaseUseCaseStreamOUT<List<Character>>>(() => GetCharactersFavoritesStreamUseCase(
-      repository: getIt<IRepository>())
-  );
-  GetIt.I.registerFactory<BaseUseCaseFuture<int, CharacterDetail>>(()=> GetCharacterDetailUseCase(
-      repository: getIt<IRepository>())
-  );
-  GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => SwitchCharacterFavoriteUseCase(
-      repository: getIt<IRepository>()), instanceName: useCaseSwitchCharacterFavorite
-  );
-  GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => IsCharacterFavoriteUseCase(
-      repository: getIt<IRepository>()), instanceName: useCaseIsCharacterFavorite
-  );
+  GetIt.I.registerFactory<BaseUseCaseFutureOUT<List<Character>>>(() => GetCharactersUseCase(repository: getIt<IRepository>()), instanceName: useCaseCharacters);
+  GetIt.I.registerFactory<BaseUseCaseStreamOUT<List<Character>>>(() => GetCharactersFavoritesStreamUseCase(repository: getIt<IRepository>()));
+  GetIt.I.registerFactory<BaseUseCaseFuture<int, CharacterDetail>>(() => GetCharacterDetailUseCase(repository: getIt<IRepository>()));
+  GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => SwitchCharacterFavoriteUseCase(repository: getIt<IRepository>()), instanceName: useCaseSwitchCharacterFavorite);
+  GetIt.I.registerFactory<BaseUseCaseFuture<int, bool>>(() => IsCharacterFavoriteUseCase(repository: getIt<IRepository>()), instanceName: useCaseIsCharacterFavorite);
 
   // Mappers
   GetIt.I.registerSingleton<Mapper<ApiCharacter, Character>>(ApiCharacterMapper());
@@ -74,18 +62,8 @@ Future<void> initLocator() async {
   GetIt.I.registerSingleton<Mapper<CharacterDetail, DbCharacter>>(DbCharacterDetailMapper());
 
   // Data
-  GetIt.I.registerSingleton<IDataRemote>(DataRemoteImp(
-      httpClient: http.Client(),
-      characterMapper: getIt<Mapper<ApiCharacter, Character>>(),
-      characterDetailMapper: getIt<Mapper<ApiCharacter, CharacterDetail>>())
-  );
-  GetIt.I.registerSingleton<IDataLocal>(DataLocalImp(
-      isar: isar,
-      characterDbMapper: getIt<Mapper<DbCharacter, Character>>(),
-      characterDetailDbMapper: getIt<Mapper<CharacterDetail, DbCharacter>>())
-  );
-  GetIt.I.registerSingleton<IRepository>(RepositoryImp(
-      dataRemote: getIt<IDataRemote>(),
-      dataLocal: getIt<IDataLocal>())
-  );
+  GetIt.I.registerSingleton<IDataRemote>(
+      DataRemoteImp(httpClient: http.Client(), characterMapper: getIt<Mapper<ApiCharacter, Character>>(), characterDetailMapper: getIt<Mapper<ApiCharacter, CharacterDetail>>()));
+  GetIt.I.registerSingleton<IDataLocal>(DataLocalImp(isar: isar, characterDbMapper: getIt<Mapper<DbCharacter, Character>>(), characterDetailDbMapper: getIt<Mapper<CharacterDetail, DbCharacter>>()));
+  GetIt.I.registerSingleton<IRepository>(RepositoryImp(dataRemote: getIt<IDataRemote>(), dataLocal: getIt<IDataLocal>()));
 }

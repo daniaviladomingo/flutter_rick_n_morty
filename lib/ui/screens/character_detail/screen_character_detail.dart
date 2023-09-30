@@ -11,10 +11,7 @@ class ScreenCharacterDetail extends StatelessWidget {
   const ScreenCharacterDetail({super.key, required this.idCharacter});
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-      create: (_) => getIt<CharacterDetailBloc>(param1: idCharacter)..add(const CharacterDetailEvent.init()),
-      child: const ViewCharacterDetail()
-  );
+  Widget build(BuildContext context) => BlocProvider(create: (_) => getIt<CharacterDetailBloc>(param1: idCharacter)..add(const CharacterDetailEvent.init()), child: const ViewCharacterDetail());
 }
 
 class ViewCharacterDetail extends StatelessWidget {
@@ -22,32 +19,36 @@ class ViewCharacterDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocBuilder<CharacterDetailBloc, CharacterDetailState>(
-      builder: (context, state) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-              title: ManagementBaseUiStateWidget(
-                state: state.characterDetail,
-                successView: (character) => Text(character.name),
-                retry: () {},
-              ),
-              actions: [
-                ManagementBaseUiStateWidget(
-                  state: state.isFavorite,
-                  successView: (isFavorite) =>
-                      IconButton(
-                          onPressed: () => context.read<CharacterDetailBloc>().add(const CharacterDetailEvent.onFavoriteItemClick()),
-                          icon: Icon(isFavorite ? Icons.favorite_rounded : Icons.favorite_border)),
-                  retry: (){},
-                )
-              ],
+        builder: (context, state) => Scaffold(
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            title: ManagementBaseUiStateWidget(
+              state: state.characterDetail,
+              successView: (character) => Text(character.name),
+              retry: () {},
             ),
-            body: Center(
-                child: ManagementBaseUiStateWidget(
-                    state: state.characterDetail,
-                    successView: (character) => CachedNetworkImage(
-                          placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-                          imageUrl: character.image,
-                        ),
-                    retry: () {})),
-          ));
+            actions: [
+              ManagementBaseUiStateWidget(
+                state: state.isFavorite,
+                successView: (isFavorite) => IconButton(
+                    onPressed: () => context.read<CharacterDetailBloc>().add(const CharacterDetailEvent.onFavoriteItemClick()),
+                    icon: Icon(isFavorite ? Icons.favorite_rounded : Icons.favorite_border)),
+                retry: () {},
+              )
+            ],
+          ),
+          body: Center(
+            child: ManagementBaseUiStateWidget(
+                state: state.characterDetail,
+                successView: (character) => Hero(
+                      tag: character.image,
+                      child: CachedNetworkImage(
+                        placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                        imageUrl: character.image,
+                      ),
+                    ),
+                retry: () {}),
+          ),
+        ),
+      );
 }

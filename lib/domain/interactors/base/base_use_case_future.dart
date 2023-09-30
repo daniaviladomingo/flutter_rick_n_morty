@@ -4,13 +4,12 @@ import '../../model/base/result.dart';
 
 abstract class BaseUseCaseFuture<IN, OUT> {
   Future<Result<OUT>> invoke(IN param) async {
-
     try {
       return Result.success(data: await block(param));
     } on Error catch (e) {
-     return Result.error(error: Exception(e.stackTrace));
+      return Result.error(error: Exception(e.stackTrace));
     } on Exception catch (e) {
-     return Result.error(error: e);
+      return Result.error(error: e);
     }
   }
 
@@ -20,7 +19,6 @@ abstract class BaseUseCaseFuture<IN, OUT> {
 
 abstract class BaseUseCaseFutureOUT<OUT> {
   Future<Result<OUT>> invoke() async {
-
     try {
       return Result.success(data: await block());
     } on Error catch (e) {
