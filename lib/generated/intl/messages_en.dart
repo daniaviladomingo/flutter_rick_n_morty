@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("An error has occurred"),
         "characterFavorites":
             MessageLookupByLibrary.simpleMessage("Characters Favorites"),
+        "checkAgain": MessageLookupByLibrary.simpleMessage("Check again"),
         "helloWorld": MessageLookupByLibrary.simpleMessage("Hello World!"),
         "noDataToShow": MessageLookupByLibrary.simpleMessage("No data to show"),
         "rickAndMorty":

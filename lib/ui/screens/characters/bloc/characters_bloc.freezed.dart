@@ -164,7 +164,7 @@ abstract class _Init implements CharactersEvent {
 
 /// @nodoc
 mixin _$CharactersState {
-  BaseUiState<List<Character>> get characters =>
+  ResourceUiState<List<CharacterEntity>> get characters =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -178,9 +178,9 @@ abstract class $CharactersStateCopyWith<$Res> {
           CharactersState value, $Res Function(CharactersState) then) =
       _$CharactersStateCopyWithImpl<$Res, CharactersState>;
   @useResult
-  $Res call({BaseUiState<List<Character>> characters});
+  $Res call({ResourceUiState<List<CharacterEntity>> characters});
 
-  $BaseUiStateCopyWith<List<Character>, $Res> get characters;
+  $ResourceUiStateCopyWith<List<CharacterEntity>, $Res> get characters;
 }
 
 /// @nodoc
@@ -202,15 +202,15 @@ class _$CharactersStateCopyWithImpl<$Res, $Val extends CharactersState>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<List<Character>>,
+              as ResourceUiState<List<CharacterEntity>>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BaseUiStateCopyWith<List<Character>, $Res> get characters {
-    return $BaseUiStateCopyWith<List<Character>, $Res>(_value.characters,
-        (value) {
+  $ResourceUiStateCopyWith<List<CharacterEntity>, $Res> get characters {
+    return $ResourceUiStateCopyWith<List<CharacterEntity>, $Res>(
+        _value.characters, (value) {
       return _then(_value.copyWith(characters: value) as $Val);
     });
   }
@@ -224,10 +224,10 @@ abstract class _$$_CharactersStateCopyWith<$Res>
       __$$_CharactersStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BaseUiState<List<Character>> characters});
+  $Res call({ResourceUiState<List<CharacterEntity>> characters});
 
   @override
-  $BaseUiStateCopyWith<List<Character>, $Res> get characters;
+  $ResourceUiStateCopyWith<List<CharacterEntity>, $Res> get characters;
 }
 
 /// @nodoc
@@ -247,7 +247,7 @@ class __$$_CharactersStateCopyWithImpl<$Res>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<List<Character>>,
+              as ResourceUiState<List<CharacterEntity>>,
     ));
   }
 }
@@ -258,7 +258,7 @@ class _$_CharactersState implements _CharactersState {
   const _$_CharactersState({required this.characters});
 
   @override
-  final BaseUiState<List<Character>> characters;
+  final ResourceUiState<List<CharacterEntity>> characters;
 
   @override
   String toString() {
@@ -286,11 +286,11 @@ class _$_CharactersState implements _CharactersState {
 
 abstract class _CharactersState implements CharactersState {
   const factory _CharactersState(
-          {required final BaseUiState<List<Character>> characters}) =
+          {required final ResourceUiState<List<CharacterEntity>> characters}) =
       _$_CharactersState;
 
   @override
-  BaseUiState<List<Character>> get characters;
+  ResourceUiState<List<CharacterEntity>> get characters;
   @override
   @JsonKey(ignore: true)
   _$$_CharactersStateCopyWith<_$_CharactersState> get copyWith =>

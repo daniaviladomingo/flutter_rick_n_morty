@@ -1,16 +1,17 @@
-import 'package:rick_and_morty/common/mapper.dart';
-import 'package:rick_and_morty/data_remote/model/character.dart';
-import 'package:rick_and_morty/domain/model/character_detail.dart';
+import 'package:common/common.dart';
+import 'package:domain/domain.dart';
 
-class ApiCharacterDetailMapper extends Mapper<ApiCharacter, CharacterDetail> {
+import '../api_character.dart';
+
+class ApiCharacterDetailMapper extends Mapper<ApiCharacter, CharacterDetailEntity> {
   @override
-  ApiCharacter inverseMap(CharacterDetail model) {
+  ApiCharacter inverseMap(CharacterDetailEntity model) {
     // TODO: implement inverseMap
     throw UnimplementedError();
   }
 
   @override
-  CharacterDetail map(ApiCharacter model) => CharacterDetail(
+  CharacterDetailEntity map(ApiCharacter model) => CharacterDetailEntity(
         id: model.id,
         name: model.name,
         status: switch (model.status) {

@@ -119,6 +119,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Check again`
+  String get checkAgain {
+    return Intl.message(
+      'Check again',
+      name: 'checkAgain',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

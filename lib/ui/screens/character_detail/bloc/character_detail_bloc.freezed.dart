@@ -279,9 +279,9 @@ abstract class _OnFavoriteItemClick implements CharacterDetailEvent {
 
 /// @nodoc
 mixin _$CharacterDetailState {
-  BaseUiState<CharacterDetail> get characterDetail =>
+  ResourceUiState<CharacterDetailEntity> get characterDetail =>
       throw _privateConstructorUsedError;
-  BaseUiState<bool> get isFavorite => throw _privateConstructorUsedError;
+  ResourceUiState<bool> get isFavorite => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CharacterDetailStateCopyWith<CharacterDetailState> get copyWith =>
@@ -295,11 +295,11 @@ abstract class $CharacterDetailStateCopyWith<$Res> {
       _$CharacterDetailStateCopyWithImpl<$Res, CharacterDetailState>;
   @useResult
   $Res call(
-      {BaseUiState<CharacterDetail> characterDetail,
-      BaseUiState<bool> isFavorite});
+      {ResourceUiState<CharacterDetailEntity> characterDetail,
+      ResourceUiState<bool> isFavorite});
 
-  $BaseUiStateCopyWith<CharacterDetail, $Res> get characterDetail;
-  $BaseUiStateCopyWith<bool, $Res> get isFavorite;
+  $ResourceUiStateCopyWith<CharacterDetailEntity, $Res> get characterDetail;
+  $ResourceUiStateCopyWith<bool, $Res> get isFavorite;
 }
 
 /// @nodoc
@@ -323,27 +323,27 @@ class _$CharacterDetailStateCopyWithImpl<$Res,
       characterDetail: null == characterDetail
           ? _value.characterDetail
           : characterDetail // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<CharacterDetail>,
+              as ResourceUiState<CharacterDetailEntity>,
       isFavorite: null == isFavorite
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<bool>,
+              as ResourceUiState<bool>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BaseUiStateCopyWith<CharacterDetail, $Res> get characterDetail {
-    return $BaseUiStateCopyWith<CharacterDetail, $Res>(_value.characterDetail,
-        (value) {
+  $ResourceUiStateCopyWith<CharacterDetailEntity, $Res> get characterDetail {
+    return $ResourceUiStateCopyWith<CharacterDetailEntity, $Res>(
+        _value.characterDetail, (value) {
       return _then(_value.copyWith(characterDetail: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BaseUiStateCopyWith<bool, $Res> get isFavorite {
-    return $BaseUiStateCopyWith<bool, $Res>(_value.isFavorite, (value) {
+  $ResourceUiStateCopyWith<bool, $Res> get isFavorite {
+    return $ResourceUiStateCopyWith<bool, $Res>(_value.isFavorite, (value) {
       return _then(_value.copyWith(isFavorite: value) as $Val);
     });
   }
@@ -358,13 +358,13 @@ abstract class _$$_CharacterDetailStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {BaseUiState<CharacterDetail> characterDetail,
-      BaseUiState<bool> isFavorite});
+      {ResourceUiState<CharacterDetailEntity> characterDetail,
+      ResourceUiState<bool> isFavorite});
 
   @override
-  $BaseUiStateCopyWith<CharacterDetail, $Res> get characterDetail;
+  $ResourceUiStateCopyWith<CharacterDetailEntity, $Res> get characterDetail;
   @override
-  $BaseUiStateCopyWith<bool, $Res> get isFavorite;
+  $ResourceUiStateCopyWith<bool, $Res> get isFavorite;
 }
 
 /// @nodoc
@@ -385,11 +385,11 @@ class __$$_CharacterDetailStateCopyWithImpl<$Res>
       characterDetail: null == characterDetail
           ? _value.characterDetail
           : characterDetail // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<CharacterDetail>,
+              as ResourceUiState<CharacterDetailEntity>,
       isFavorite: null == isFavorite
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<bool>,
+              as ResourceUiState<bool>,
     ));
   }
 }
@@ -401,9 +401,9 @@ class _$_CharacterDetailState implements _CharacterDetailState {
       {required this.characterDetail, required this.isFavorite});
 
   @override
-  final BaseUiState<CharacterDetail> characterDetail;
+  final ResourceUiState<CharacterDetailEntity> characterDetail;
   @override
-  final BaseUiState<bool> isFavorite;
+  final ResourceUiState<bool> isFavorite;
 
   @override
   String toString() {
@@ -434,13 +434,14 @@ class _$_CharacterDetailState implements _CharacterDetailState {
 
 abstract class _CharacterDetailState implements CharacterDetailState {
   const factory _CharacterDetailState(
-      {required final BaseUiState<CharacterDetail> characterDetail,
-      required final BaseUiState<bool> isFavorite}) = _$_CharacterDetailState;
+      {required final ResourceUiState<CharacterDetailEntity> characterDetail,
+      required final ResourceUiState<bool>
+          isFavorite}) = _$_CharacterDetailState;
 
   @override
-  BaseUiState<CharacterDetail> get characterDetail;
+  ResourceUiState<CharacterDetailEntity> get characterDetail;
   @override
-  BaseUiState<bool> get isFavorite;
+  ResourceUiState<bool> get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$_CharacterDetailStateCopyWith<_$_CharacterDetailState> get copyWith =>

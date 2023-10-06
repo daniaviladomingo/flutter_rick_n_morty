@@ -1,9 +1,11 @@
-import 'package:rick_and_morty/domain/model/character.dart';
-import 'package:rick_and_morty/domain/model/character_detail.dart';
+import 'package:domain/domain.dart';
 
 abstract class IDataLocal {
-  Future<void> addCharacterToFavorite(CharacterDetail character);
+  Future<void> addCharacterToFavorite(CharacterDetailEntity character);
+
   Future<void> removeCharacterFromFavorite(int idCharacter);
-  Stream<List<Character>> getFavoritesCharacters();
+
+  Stream<List<CharacterEntity>> getFavoritesCharacters();
+
   Future<bool> isCharacterFavorite(int idCharacter);
 }

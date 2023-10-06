@@ -172,7 +172,7 @@ abstract class _Init implements CharactersFavoritesEvent {
 
 /// @nodoc
 mixin _$CharactersFavoritesState {
-  BaseUiState<List<Character>> get characters =>
+  ResourceUiState<List<CharacterEntity>> get characters =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -186,9 +186,9 @@ abstract class $CharactersFavoritesStateCopyWith<$Res> {
           $Res Function(CharactersFavoritesState) then) =
       _$CharactersFavoritesStateCopyWithImpl<$Res, CharactersFavoritesState>;
   @useResult
-  $Res call({BaseUiState<List<Character>> characters});
+  $Res call({ResourceUiState<List<CharacterEntity>> characters});
 
-  $BaseUiStateCopyWith<List<Character>, $Res> get characters;
+  $ResourceUiStateCopyWith<List<CharacterEntity>, $Res> get characters;
 }
 
 /// @nodoc
@@ -211,15 +211,15 @@ class _$CharactersFavoritesStateCopyWithImpl<$Res,
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<List<Character>>,
+              as ResourceUiState<List<CharacterEntity>>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BaseUiStateCopyWith<List<Character>, $Res> get characters {
-    return $BaseUiStateCopyWith<List<Character>, $Res>(_value.characters,
-        (value) {
+  $ResourceUiStateCopyWith<List<CharacterEntity>, $Res> get characters {
+    return $ResourceUiStateCopyWith<List<CharacterEntity>, $Res>(
+        _value.characters, (value) {
       return _then(_value.copyWith(characters: value) as $Val);
     });
   }
@@ -233,10 +233,10 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BaseUiState<List<Character>> characters});
+  $Res call({ResourceUiState<List<CharacterEntity>> characters});
 
   @override
-  $BaseUiStateCopyWith<List<Character>, $Res> get characters;
+  $ResourceUiStateCopyWith<List<CharacterEntity>, $Res> get characters;
 }
 
 /// @nodoc
@@ -255,7 +255,7 @@ class __$$_InitialCopyWithImpl<$Res>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as BaseUiState<List<Character>>,
+              as ResourceUiState<List<CharacterEntity>>,
     ));
   }
 }
@@ -266,7 +266,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial({required this.characters});
 
   @override
-  final BaseUiState<List<Character>> characters;
+  final ResourceUiState<List<CharacterEntity>> characters;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -302,10 +302,11 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
 abstract class _Initial implements CharactersFavoritesState {
   const factory _Initial(
-      {required final BaseUiState<List<Character>> characters}) = _$_Initial;
+          {required final ResourceUiState<List<CharacterEntity>> characters}) =
+      _$_Initial;
 
   @override
-  BaseUiState<List<Character>> get characters;
+  ResourceUiState<List<CharacterEntity>> get characters;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

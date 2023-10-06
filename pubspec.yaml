@@ -32,6 +32,12 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+
+  domain:
+    path: domain
+  common:
+    path: common
+
   intl: any
   flutter_bloc: ^8.1.2
   freezed_annotation: ^2.2.0

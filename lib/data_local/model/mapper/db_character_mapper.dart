@@ -1,15 +1,18 @@
-import 'package:rick_and_morty/common/mapper.dart';
-import 'package:rick_and_morty/data_local/model/db_character.dart';
-import 'package:rick_and_morty/domain/model/character.dart';
+import 'package:common/common.dart';
+import 'package:domain/domain.dart';
+import '../db_character.dart';
 
-class DbCharacterMapper extends Mapper<DbCharacter, Character> {
+class DbCharacterMapper extends Mapper<DbCharacter, CharacterEntity> {
   @override
-  DbCharacter inverseMap(Character model) => DbCharacter()
+  DbCharacter inverseMap(CharacterEntity model) => DbCharacter()
     ..id = model.id
     ..name = model.name
     ..img = model.image;
 
   @override
-  Character map(DbCharacter model) =>
-      Character(id: model.id, name: model.name, image: model.img);
+  CharacterEntity map(DbCharacter model) => CharacterEntity(
+        id: model.id,
+        name: model.name,
+        image: model.img,
+      );
 }

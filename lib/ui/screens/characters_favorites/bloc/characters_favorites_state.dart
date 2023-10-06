@@ -3,6 +3,6 @@ part of 'characters_favorites_bloc.dart';
 @freezed
 class CharactersFavoritesState with _$CharactersFavoritesState {
   const factory CharactersFavoritesState({
-    required BaseUiState<List<Character>> characters,
+    required ResourceUiState<List<CharacterEntity>> characters,
   }) = _Initial;
 }

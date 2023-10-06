@@ -1,8 +1,6 @@
-import 'package:rick_and_morty/data/local/i_data_local.dart';
-import 'package:rick_and_morty/data/remote/i_data_remote.dart';
-import 'package:rick_and_morty/domain/i_repository.dart';
-import 'package:rick_and_morty/domain/model/character.dart';
-import 'package:rick_and_morty/domain/model/character_detail.dart';
+import 'package:domain/domain.dart';
+import 'local/i_data_local.dart';
+import 'remote/i_data_remote.dart';
 
 class RepositoryImp extends IRepository {
   final IDataRemote dataRemote;
@@ -11,19 +9,19 @@ class RepositoryImp extends IRepository {
   RepositoryImp({required this.dataRemote, required this.dataLocal});
 
   @override
-  Future<List<Character>> getCharacters() => dataRemote.getCharacters();
+  Future<List<CharacterEntity>> getCharacters() => dataRemote.getCharacters();
 
   @override
-  Future<void> addCharacterToFavorite(CharacterDetail character) => dataLocal.addCharacterToFavorite(character);
+  Future<void> addCharacterToFavorite(CharacterDetailEntity character) => dataLocal.addCharacterToFavorite(character);
 
   @override
-  Stream<List<Character>> getCharactersFavorites() => dataLocal.getFavoritesCharacters();
+  Stream<List<CharacterEntity>> getCharactersFavorites() => dataLocal.getFavoritesCharacters();
 
   @override
   Future<void> removeCharacterFromFavorite(int idCharacter) => dataLocal.removeCharacterFromFavorite(idCharacter);
 
   @override
-  Future<CharacterDetail> getCharacterDetail(int idCharacter) => dataRemote.getCharacterDetail(idCharacter);
+  Future<CharacterDetailEntity> getCharacterDetail(int idCharacter) => dataRemote.getCharacterDetail(idCharacter);
 
   @override
   Future<bool> isCharacterFavorite(int idCharacter) => dataLocal.isCharacterFavorite(idCharacter);

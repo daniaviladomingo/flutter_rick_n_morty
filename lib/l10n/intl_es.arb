@@ -6,5 +6,6 @@
   "rickAndMorty": "Rick & Morty Flutter",
   "noDataToShow" : "Sin datos que mostrar",
   "anErrorHasOccurred" : "Ha ocurrido un error",
-  "tryAgain" : "Inténtalo de nuevo"
+  "tryAgain" : "Inténtalo de nuevo",
+  "checkAgain" : "Compruébalo de nuevo"
 }

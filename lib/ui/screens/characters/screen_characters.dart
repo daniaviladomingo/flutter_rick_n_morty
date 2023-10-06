@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:common/common.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rick_and_morty/di/service_locator.dart';
-import 'package:rick_and_morty/domain/model/character.dart';
-import 'package:rick_and_morty/generated/l10n.dart';
-import 'package:rick_and_morty/ui/common/management_base_ui_state_widget.dart';
-import 'package:rick_and_morty/ui/navigation.dart';
-import 'package:rick_and_morty/ui/screens/characters/bloc/characters_bloc.dart';
+import '../../common/management_resource_ui_state_widget.dart';
+import '../../navigation.dart';
+import '../../common/util/flutter_extension_methods.dart';
+import 'bloc/characters_bloc.dart';
+
 
 class ScreenCharacters extends StatelessWidget {
   const ScreenCharacters({super.key});
@@ -23,28 +24,29 @@ class ViewCharacters extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(S.of(context).rickAndMorty),
+        backgroundColor: context.theme.colorScheme.inversePrimary,
+        title: Text(context.string.rickAndMorty),
         actions: [
           IconButton(
             onPressed: () => context.goNamed(AppScreens.charactersFavorite.name),
             icon: const Icon(Icons.favorite_rounded),
-          )
+          ),
         ],
       ),
       body: BlocBuilder<CharactersBloc, CharactersState>(
         builder: (context, state) {
-          return ManagementBaseUiStateWidget(
+          return ManagementResourceUiStateWidget(
             state: state.characters,
             successView: (characters) => ListView.builder(
               itemCount: characters.length,
               itemBuilder: (BuildContext context, int index) {
                 final character = characters[index];
                 return GestureDetector(
-                    onTap: () => context.goNamed(AppScreens.characterDetailFromCharacters.name, pathParameters: {'id_character': character.id.toString()}), child: ViewCharacter(character: character));
+                  onTap: () => context.goNamed(AppScreens.characterDetailFromCharacters.name, pathParameters: {'id_character': character.id.toString()}),
+                  child: ViewCharacter(character: character),
+                );
               },
             ),
-            retry: () {},
           );
         },
       ),
@@ -53,7 +55,7 @@ class ViewCharacters extends StatelessWidget {
 }
 
 class ViewCharacter extends StatelessWidget {
-  final Character character;
+  final CharacterEntity character;
 
   const ViewCharacter({super.key, required this.character});
 
@@ -61,7 +63,7 @@ class ViewCharacter extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         children: [
           Container(
-            height: MediaQuery.of(context).size.width / 2,
+            height: context.mediaQuery.size.width / 2,
             margin: const EdgeInsetsDirectional.all(10),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
@@ -78,7 +80,7 @@ class ViewCharacter extends StatelessWidget {
           ),
           Expanded(
             child: Text(character.name),
-          )
+          ),
         ],
       );
 }
