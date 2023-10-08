@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:common/common.dart';
 import 'package:domain/domain.dart';
 import 'package:http/http.dart';
-import '../data/remote/i_data_remote.dart';
+import '../i_data_remote.dart';
 import 'model/api_character.dart';
 import 'model/api_characters_result.dart';
 

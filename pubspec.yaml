@@ -35,6 +35,8 @@ dependencies:
 
   domain:
     path: domain
+  data:
+    path: data
   common:
     path: common
 
@@ -42,12 +44,6 @@ dependencies:
   flutter_bloc: ^8.1.2
   freezed_annotation: ^2.2.0
   bloc: ^8.1.2
-  http: ^1.0.0
-  json_annotation: ^4.8.1
-  get_it: ^7.6.0
-  isar: ^3.1.0+1
-  isar_flutter_libs: ^3.1.0+1
-  path_provider: ^2.0.11
   go_router: ^10.1.2
   cached_network_image: ^3.2.3
 
@@ -60,8 +56,6 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^2.4.5
   freezed: ^2.4.1
-  json_serializable: ^6.7.0
-  isar_generator: ^3.1.0+1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

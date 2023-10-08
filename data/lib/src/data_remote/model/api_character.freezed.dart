@@ -265,7 +265,7 @@ class __$$_CharacterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Character with DiagnosticableTreeMixin implements _Character {
+class _$_Character implements _Character {
   const _$_Character(
       {required this.id,
       required this.name,
@@ -316,27 +316,8 @@ class _$_Character with DiagnosticableTreeMixin implements _Character {
   final String created;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ApiCharacter(id: $id, name: $name, status: $status, species: $species, type: $type, gender: $gender, origin: $origin, location: $location, image: $image, episode: $episode, url: $url, created: $created)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ApiCharacter'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('status', status))
-      ..add(DiagnosticsProperty('species', species))
-      ..add(DiagnosticsProperty('type', type))
-      ..add(DiagnosticsProperty('gender', gender))
-      ..add(DiagnosticsProperty('origin', origin))
-      ..add(DiagnosticsProperty('location', location))
-      ..add(DiagnosticsProperty('image', image))
-      ..add(DiagnosticsProperty('episode', episode))
-      ..add(DiagnosticsProperty('url', url))
-      ..add(DiagnosticsProperty('created', created));
   }
 
   @override

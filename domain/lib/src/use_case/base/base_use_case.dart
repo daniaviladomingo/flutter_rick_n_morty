@@ -41,6 +41,7 @@ abstract class BaseUseCaseIN<IN> {
 
 abstract class BaseUseCase {
   Future<Result> invoke() async {
+    // for i to 10
     try {
       return Result.success(data: await block());
     } on Cause catch (e) {

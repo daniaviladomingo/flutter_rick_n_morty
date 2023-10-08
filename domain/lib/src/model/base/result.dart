@@ -31,6 +31,7 @@ extension FutureResultExtension<I, O extends Object> on Future<Result<I>> {
 }
 
 extension ResultExtension<I, O extends Object> on Result<I> {
+
   Result<O> mapOnSuccess(O Function(I data) transform) {
     return (this).map(
       success: (data) {

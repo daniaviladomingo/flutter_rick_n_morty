@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:rick_and_morty/di/service_locator.dart';
+import 'package:rick_and_morty/di/di.dart';
 import 'package:rick_and_morty/generated/l10n.dart';
 import 'package:rick_and_morty/ui/navigation.dart';
 

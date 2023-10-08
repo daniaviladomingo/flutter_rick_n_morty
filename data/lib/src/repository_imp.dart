@@ -1,6 +1,6 @@
 import 'package:domain/domain.dart';
-import 'local/i_data_local.dart';
-import 'remote/i_data_remote.dart';
+import 'i_data_local.dart';
+import 'i_data_remote.dart';
 
 class RepositoryImp extends IRepository {
   final IDataRemote dataRemote;

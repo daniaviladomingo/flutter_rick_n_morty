@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rick_and_morty/data_remote/model/api_character.dart';
+import 'api_character.dart';
 
 part 'api_characters_result.freezed.dart';
 part 'api_characters_result.g.dart';

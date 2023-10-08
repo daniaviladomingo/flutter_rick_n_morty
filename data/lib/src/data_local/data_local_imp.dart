@@ -2,20 +2,20 @@ import 'dart:async';
 import 'package:common/common.dart';
 import 'package:domain/domain.dart';
 import 'package:isar/isar.dart';
-import '../data/local/i_data_local.dart';
+import '../i_data_local.dart';
 import 'model/db_character.dart';
 
 class DataLocalImp extends IDataLocal {
   final Isar isar;
   final Mapper<DbCharacter, CharacterEntity> characterDbMapper;
-  final Mapper<CharacterDetailEntity, DbCharacter> characterDetailDbMapper;
+  final Mapper<DbCharacter, CharacterDetailEntity> characterDetailDbMapper;
 
   DataLocalImp({required this.isar, required this.characterDbMapper, required this.characterDetailDbMapper});
 
   @override
   Future<void> addCharacterToFavorite(CharacterDetailEntity character) => isar.writeTxn(
         () async {
-          await isar.dbCharacters.put(characterDetailDbMapper.map(character));
+          await isar.dbCharacters.put(characterDetailDbMapper.inverseMap(character));
         },
       );
 

@@ -8,10 +8,10 @@ class ManagementResourceUiStateWidget<T, SuccessWidget extends Widget> extends S
   final SuccessWidget Function(T) successView;
   final VoidCallback? onCheckAgain;
   final VoidCallback? onTryAgain;
-  final void Function(Reason)? onError;
+  final void Function(Reason)? onFailure;
   final Widget? customLoadingWidget;
   final Widget? customEmptyWidget;
-  final Widget? customErrorWidget;
+  final Widget Function(Reason)? customErrorWidget;
 
   const ManagementResourceUiStateWidget({
     super.key,
@@ -19,7 +19,7 @@ class ManagementResourceUiStateWidget<T, SuccessWidget extends Widget> extends S
     required this.successView,
     this.onCheckAgain,
     this.onTryAgain,
-    this.onError,
+    this.onFailure,
     this.customLoadingWidget,
     this.customEmptyWidget,
     this.customErrorWidget,
@@ -31,11 +31,11 @@ class ManagementResourceUiStateWidget<T, SuccessWidget extends Widget> extends S
         loading: () => customLoadingWidget ?? const _LoadingWidget(),
         empty: () => customEmptyWidget ?? _EmptyWidget(onCheckAgain),
         failure: (reason) {
-          if (onError != null) {
-            onError!(reason);
-            return const SizedBox.shrink();
+          onFailure ?? (reason);
+          if (customErrorWidget != null) {
+            return customErrorWidget!(reason);
           }
-          return customErrorWidget ?? _ErrorWidget(onTryAgain);
+          return _ErrorWidget(onTryAgain);
         },
         success: (data) => successView(data),
       );
