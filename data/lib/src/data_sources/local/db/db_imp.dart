@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:common/common.dart';
 import 'package:domain/domain.dart';
 import 'package:isar/isar.dart';
-import '../i_data_local.dart';
+import '../i_db.dart';
 import 'model/db_character.dart';
 
-class DataLocalImp extends IDataLocal {
+class DataLocalImp implements IDB {
   final Isar isar;
   final Mapper<DbCharacter, CharacterEntity> characterDbMapper;
   final Mapper<DbCharacter, CharacterDetailEntity> characterDetailDbMapper;

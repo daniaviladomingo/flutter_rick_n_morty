@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../common/management_resource_ui_state_widget.dart';
-import '../../navigation.dart';
+import '../../../navigation.dart';
 import '../../common/util/flutter_extension_methods.dart';
 import 'bloc/characters_bloc.dart';
 

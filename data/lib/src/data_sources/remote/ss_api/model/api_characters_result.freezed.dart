@@ -62,22 +62,22 @@ class _$ApiCharactersResultCopyWithImpl<$Res, $Val extends ApiCharactersResult>
 }
 
 /// @nodoc
-abstract class _$$_ApiCharactersResultCopyWith<$Res>
+abstract class _$$ApiCharactersResultImplCopyWith<$Res>
     implements $ApiCharactersResultCopyWith<$Res> {
-  factory _$$_ApiCharactersResultCopyWith(_$_ApiCharactersResult value,
-          $Res Function(_$_ApiCharactersResult) then) =
-      __$$_ApiCharactersResultCopyWithImpl<$Res>;
+  factory _$$ApiCharactersResultImplCopyWith(_$ApiCharactersResultImpl value,
+          $Res Function(_$ApiCharactersResultImpl) then) =
+      __$$ApiCharactersResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ApiCharacter> results});
 }
 
 /// @nodoc
-class __$$_ApiCharactersResultCopyWithImpl<$Res>
-    extends _$ApiCharactersResultCopyWithImpl<$Res, _$_ApiCharactersResult>
-    implements _$$_ApiCharactersResultCopyWith<$Res> {
-  __$$_ApiCharactersResultCopyWithImpl(_$_ApiCharactersResult _value,
-      $Res Function(_$_ApiCharactersResult) _then)
+class __$$ApiCharactersResultImplCopyWithImpl<$Res>
+    extends _$ApiCharactersResultCopyWithImpl<$Res, _$ApiCharactersResultImpl>
+    implements _$$ApiCharactersResultImplCopyWith<$Res> {
+  __$$ApiCharactersResultImplCopyWithImpl(_$ApiCharactersResultImpl _value,
+      $Res Function(_$ApiCharactersResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_ApiCharactersResultCopyWithImpl<$Res>
   $Res call({
     Object? results = null,
   }) {
-    return _then(_$_ApiCharactersResult(
+    return _then(_$ApiCharactersResultImpl(
       results: null == results
           ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,12 @@ class __$$_ApiCharactersResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiCharactersResult implements _ApiCharactersResult {
-  const _$_ApiCharactersResult({required final List<ApiCharacter> results})
+class _$ApiCharactersResultImpl implements _ApiCharactersResult {
+  const _$ApiCharactersResultImpl({required final List<ApiCharacter> results})
       : _results = results;
 
-  factory _$_ApiCharactersResult.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiCharactersResultFromJson(json);
+  factory _$ApiCharactersResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiCharactersResultImplFromJson(json);
 
   final List<ApiCharacter> _results;
   @override
@@ -120,7 +120,7 @@ class _$_ApiCharactersResult implements _ApiCharactersResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiCharactersResult &&
+            other is _$ApiCharactersResultImpl &&
             const DeepCollectionEquality().equals(other._results, _results));
   }
 
@@ -132,13 +132,13 @@ class _$_ApiCharactersResult implements _ApiCharactersResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiCharactersResultCopyWith<_$_ApiCharactersResult> get copyWith =>
-      __$$_ApiCharactersResultCopyWithImpl<_$_ApiCharactersResult>(
+  _$$ApiCharactersResultImplCopyWith<_$ApiCharactersResultImpl> get copyWith =>
+      __$$ApiCharactersResultImplCopyWithImpl<_$ApiCharactersResultImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiCharactersResultToJson(
+    return _$$ApiCharactersResultImplToJson(
       this,
     );
   }
@@ -146,15 +146,15 @@ class _$_ApiCharactersResult implements _ApiCharactersResult {
 
 abstract class _ApiCharactersResult implements ApiCharactersResult {
   const factory _ApiCharactersResult(
-      {required final List<ApiCharacter> results}) = _$_ApiCharactersResult;
+      {required final List<ApiCharacter> results}) = _$ApiCharactersResultImpl;
 
   factory _ApiCharactersResult.fromJson(Map<String, dynamic> json) =
-      _$_ApiCharactersResult.fromJson;
+      _$ApiCharactersResultImpl.fromJson;
 
   @override
   List<ApiCharacter> get results;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiCharactersResultCopyWith<_$_ApiCharactersResult> get copyWith =>
+  _$$ApiCharactersResultImplCopyWith<_$ApiCharactersResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

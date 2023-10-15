@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'api_location.dart';
 import 'api_origin.dart';
 
-
 part 'api_character.freezed.dart';
 
 part 'api_character.g.dart';

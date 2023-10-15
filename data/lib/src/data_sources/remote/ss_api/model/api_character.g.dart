@@ -6,7 +6,8 @@ part of 'api_character.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Character _$$_CharacterFromJson(Map<String, dynamic> json) => _$_Character(
+_$CharacterImpl _$$CharacterImplFromJson(Map<String, dynamic> json) =>
+    _$CharacterImpl(
       id: json['id'] as int,
       name: json['name'] as String,
       status: json['status'] as String,
@@ -22,7 +23,7 @@ _$_Character _$$_CharacterFromJson(Map<String, dynamic> json) => _$_Character(
       created: json['created'] as String,
     );
 
-Map<String, dynamic> _$$_CharacterToJson(_$_Character instance) =>
+Map<String, dynamic> _$$CharacterImplToJson(_$CharacterImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

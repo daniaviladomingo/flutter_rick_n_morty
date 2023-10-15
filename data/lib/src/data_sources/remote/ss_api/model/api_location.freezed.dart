@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'api_origin.dart';
+part of 'api_location.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,33 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ApiOrigin _$ApiOriginFromJson(Map<String, dynamic> json) {
-  return _ApiOrigin.fromJson(json);
+ApiLocation _$ApiLocationFromJson(Map<String, dynamic> json) {
+  return _ApiLocation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ApiOrigin {
+mixin _$ApiLocation {
   String get name => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ApiOriginCopyWith<ApiOrigin> get copyWith =>
+  $ApiLocationCopyWith<ApiLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ApiOriginCopyWith<$Res> {
-  factory $ApiOriginCopyWith(ApiOrigin value, $Res Function(ApiOrigin) then) =
-      _$ApiOriginCopyWithImpl<$Res, ApiOrigin>;
+abstract class $ApiLocationCopyWith<$Res> {
+  factory $ApiLocationCopyWith(
+          ApiLocation value, $Res Function(ApiLocation) then) =
+      _$ApiLocationCopyWithImpl<$Res, ApiLocation>;
   @useResult
   $Res call({String name, String url});
 }
 
 /// @nodoc
-class _$ApiOriginCopyWithImpl<$Res, $Val extends ApiOrigin>
-    implements $ApiOriginCopyWith<$Res> {
-  _$ApiOriginCopyWithImpl(this._value, this._then);
+class _$ApiLocationCopyWithImpl<$Res, $Val extends ApiLocation>
+    implements $ApiLocationCopyWith<$Res> {
+  _$ApiLocationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,21 +68,22 @@ class _$ApiOriginCopyWithImpl<$Res, $Val extends ApiOrigin>
 }
 
 /// @nodoc
-abstract class _$$_ApiOriginCopyWith<$Res> implements $ApiOriginCopyWith<$Res> {
-  factory _$$_ApiOriginCopyWith(
-          _$_ApiOrigin value, $Res Function(_$_ApiOrigin) then) =
-      __$$_ApiOriginCopyWithImpl<$Res>;
+abstract class _$$ApiLocationImplCopyWith<$Res>
+    implements $ApiLocationCopyWith<$Res> {
+  factory _$$ApiLocationImplCopyWith(
+          _$ApiLocationImpl value, $Res Function(_$ApiLocationImpl) then) =
+      __$$ApiLocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String url});
 }
 
 /// @nodoc
-class __$$_ApiOriginCopyWithImpl<$Res>
-    extends _$ApiOriginCopyWithImpl<$Res, _$_ApiOrigin>
-    implements _$$_ApiOriginCopyWith<$Res> {
-  __$$_ApiOriginCopyWithImpl(
-      _$_ApiOrigin _value, $Res Function(_$_ApiOrigin) _then)
+class __$$ApiLocationImplCopyWithImpl<$Res>
+    extends _$ApiLocationCopyWithImpl<$Res, _$ApiLocationImpl>
+    implements _$$ApiLocationImplCopyWith<$Res> {
+  __$$ApiLocationImplCopyWithImpl(
+      _$ApiLocationImpl _value, $Res Function(_$ApiLocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +92,7 @@ class __$$_ApiOriginCopyWithImpl<$Res>
     Object? name = null,
     Object? url = null,
   }) {
-    return _then(_$_ApiOrigin(
+    return _then(_$ApiLocationImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -105,11 +107,11 @@ class __$$_ApiOriginCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApiOrigin implements _ApiOrigin {
-  const _$_ApiOrigin({required this.name, required this.url});
+class _$ApiLocationImpl implements _ApiLocation {
+  const _$ApiLocationImpl({required this.name, required this.url});
 
-  factory _$_ApiOrigin.fromJson(Map<String, dynamic> json) =>
-      _$$_ApiOriginFromJson(json);
+  factory _$ApiLocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApiLocationImplFromJson(json);
 
   @override
   final String name;
@@ -118,14 +120,14 @@ class _$_ApiOrigin implements _ApiOrigin {
 
   @override
   String toString() {
-    return 'ApiOrigin(name: $name, url: $url)';
+    return 'ApiLocation(name: $name, url: $url)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApiOrigin &&
+            other is _$ApiLocationImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url));
   }
@@ -137,23 +139,24 @@ class _$_ApiOrigin implements _ApiOrigin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiOriginCopyWith<_$_ApiOrigin> get copyWith =>
-      __$$_ApiOriginCopyWithImpl<_$_ApiOrigin>(this, _$identity);
+  _$$ApiLocationImplCopyWith<_$ApiLocationImpl> get copyWith =>
+      __$$ApiLocationImplCopyWithImpl<_$ApiLocationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApiOriginToJson(
+    return _$$ApiLocationImplToJson(
       this,
     );
   }
 }
 
-abstract class _ApiOrigin implements ApiOrigin {
-  const factory _ApiOrigin(
-      {required final String name, required final String url}) = _$_ApiOrigin;
+abstract class _ApiLocation implements ApiLocation {
+  const factory _ApiLocation(
+      {required final String name,
+      required final String url}) = _$ApiLocationImpl;
 
-  factory _ApiOrigin.fromJson(Map<String, dynamic> json) =
-      _$_ApiOrigin.fromJson;
+  factory _ApiLocation.fromJson(Map<String, dynamic> json) =
+      _$ApiLocationImpl.fromJson;
 
   @override
   String get name;
@@ -161,6 +164,6 @@ abstract class _ApiOrigin implements ApiOrigin {
   String get url;
   @override
   @JsonKey(ignore: true)
-  _$$_ApiOriginCopyWith<_$_ApiOrigin> get copyWith =>
+  _$$ApiLocationImplCopyWith<_$ApiLocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,8 @@
-import '../model/character_entity.dart';
-import '../model/character_detail_entity.dart';
+import '../../domain.dart';
 
-abstract class IRepository {
+abstract interface class IRepository {
+  Future<void> login(UserCredentialsEntity credentials);
+
   Future<List<CharacterEntity>> getCharacters();
 
   Stream<List<CharacterEntity>> getCharactersFavorites();

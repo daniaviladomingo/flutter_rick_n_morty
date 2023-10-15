@@ -1,6 +1,6 @@
 import 'package:domain/domain.dart';
 
-abstract class IDataLocal {
+abstract interface class IDB {
   Future<void> addCharacterToFavorite(CharacterDetailEntity character);
 
   Future<void> removeCharacterFromFavorite(int idCharacter);

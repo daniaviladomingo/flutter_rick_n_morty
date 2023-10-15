@@ -6,16 +6,16 @@ part of 'api_characters_result.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiCharactersResult _$$_ApiCharactersResultFromJson(
+_$ApiCharactersResultImpl _$$ApiCharactersResultImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ApiCharactersResult(
+    _$ApiCharactersResultImpl(
       results: (json['results'] as List<dynamic>)
           .map((e) => ApiCharacter.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ApiCharactersResultToJson(
-        _$_ApiCharactersResult instance) =>
+Map<String, dynamic> _$$ApiCharactersResultImplToJson(
+        _$ApiCharactersResultImpl instance) =>
     <String, dynamic>{
       'results': instance.results,
     };

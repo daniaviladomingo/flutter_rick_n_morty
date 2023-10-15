@@ -5,7 +5,8 @@
   "characterFavorites": "Characters Favorites",
   "rickAndMorty": "Rick & Morty Flutter",
   "noDataToShow" : "No data to show",
-  "anErrorHasOccurred" : "An error has occurred",
+  "anSystemErrorHasOccurred" : "A system error has occurred",
+  "anDomainErrorHasOccurred" : "A domain error has occurred",
   "tryAgain" : "Try again",
   "checkAgain" : "Check again"
 }

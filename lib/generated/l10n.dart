@@ -100,11 +100,21 @@ class S {
     );
   }
 
-  /// `An error has occurred`
-  String get anErrorHasOccurred {
+  /// `A system error has occurred`
+  String get anSystemErrorHasOccurred {
     return Intl.message(
-      'An error has occurred',
-      name: 'anErrorHasOccurred',
+      'A system error has occurred',
+      name: 'anSystemErrorHasOccurred',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A domain error has occurred`
+  String get anDomainErrorHasOccurred {
+    return Intl.message(
+      'A domain error has occurred',
+      name: 'anDomainErrorHasOccurred',
       desc: '',
       args: [],
     );

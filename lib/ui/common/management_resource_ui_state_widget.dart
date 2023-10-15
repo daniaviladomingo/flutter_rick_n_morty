@@ -32,10 +32,7 @@ class ManagementResourceUiStateWidget<T, SuccessWidget extends Widget> extends S
         empty: () => customEmptyWidget ?? _EmptyWidget(onCheckAgain),
         failure: (reason) {
           onFailure ?? (reason);
-          if (customErrorWidget != null) {
-            return customErrorWidget!(reason);
-          }
-          return _ErrorWidget(onTryAgain);
+          return customErrorWidget != null ? customErrorWidget!(reason) : _ErrorWidget(onTryAgain, reason);
         },
         success: (data) => successView(data),
       );
@@ -81,8 +78,9 @@ class _EmptyWidget extends StatelessWidget {
 
 class _ErrorWidget extends StatelessWidget {
   final VoidCallback? onTryAgain;
+  final Reason reason;
 
-  const _ErrorWidget(this.onTryAgain);
+  const _ErrorWidget(this.onTryAgain, this.reason);
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +88,10 @@ class _ErrorWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(context.string.anErrorHasOccurred),
+          reason.when(
+            domain: (_) => Text(context.string.anDomainErrorHasOccurred),
+            system: (_) => Text(context.string.anSystemErrorHasOccurred),
+          ),
           Offstage(
             offstage: onTryAgain != null,
             child: OutlinedButton(

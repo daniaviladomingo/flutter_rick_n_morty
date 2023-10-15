@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rick_and_morty/ui/common/management_resource_ui_state_widget.dart';
 import 'package:rick_and_morty/ui/common/util/flutter_extension_methods.dart';
-import 'package:rick_and_morty/ui/navigation.dart';
+import 'package:rick_and_morty/navigation.dart';
 import 'package:rick_and_morty/ui/screens/characters/screen_characters.dart';
 import 'package:rick_and_morty/ui/screens/characters_favorites/bloc/characters_favorites_bloc.dart';
 

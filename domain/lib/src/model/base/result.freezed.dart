@@ -354,19 +354,19 @@ abstract class _Failure<T> implements Result<T> {
 mixin _$Reason {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() domain,
+    required TResult Function(Error error) domain,
     required TResult Function(Cause cause) system,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? domain,
+    TResult? Function(Error error)? domain,
     TResult? Function(Cause cause)? system,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? domain,
+    TResult Function(Error error)? domain,
     TResult Function(Cause cause)? system,
     required TResult orElse(),
   }) =>
@@ -414,6 +414,8 @@ abstract class _$$DomainImplCopyWith<$Res> {
   factory _$$DomainImplCopyWith(
           _$DomainImpl value, $Res Function(_$DomainImpl) then) =
       __$$DomainImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Error error});
 }
 
 /// @nodoc
@@ -423,54 +425,78 @@ class __$$DomainImplCopyWithImpl<$Res>
   __$$DomainImplCopyWithImpl(
       _$DomainImpl _value, $Res Function(_$DomainImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$DomainImpl(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Error,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$DomainImpl implements _Domain {
-  const _$DomainImpl();
+  const _$DomainImpl({required this.error});
+
+  @override
+  final Error error;
 
   @override
   String toString() {
-    return 'Reason.domain()';
+    return 'Reason.domain(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DomainImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DomainImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DomainImplCopyWith<_$DomainImpl> get copyWith =>
+      __$$DomainImplCopyWithImpl<_$DomainImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() domain,
+    required TResult Function(Error error) domain,
     required TResult Function(Cause cause) system,
   }) {
-    return domain();
+    return domain(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? domain,
+    TResult? Function(Error error)? domain,
     TResult? Function(Cause cause)? system,
   }) {
-    return domain?.call();
+    return domain?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? domain,
+    TResult Function(Error error)? domain,
     TResult Function(Cause cause)? system,
     required TResult orElse(),
   }) {
     if (domain != null) {
-      return domain();
+      return domain(error);
     }
     return orElse();
   }
@@ -508,7 +534,12 @@ class _$DomainImpl implements _Domain {
 }
 
 abstract class _Domain implements Reason {
-  const factory _Domain() = _$DomainImpl;
+  const factory _Domain({required final Error error}) = _$DomainImpl;
+
+  Error get error;
+  @JsonKey(ignore: true)
+  _$$DomainImplCopyWith<_$DomainImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -575,7 +606,7 @@ class _$SystemImpl implements _System {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() domain,
+    required TResult Function(Error error) domain,
     required TResult Function(Cause cause) system,
   }) {
     return system(cause);
@@ -584,7 +615,7 @@ class _$SystemImpl implements _System {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? domain,
+    TResult? Function(Error error)? domain,
     TResult? Function(Cause cause)? system,
   }) {
     return system?.call(cause);
@@ -593,7 +624,7 @@ class _$SystemImpl implements _System {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? domain,
+    TResult Function(Error error)? domain,
     TResult Function(Cause cause)? system,
     required TResult orElse(),
   }) {

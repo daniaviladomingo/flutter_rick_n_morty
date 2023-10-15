@@ -1,28 +1,37 @@
 import 'package:domain/domain.dart';
-import 'i_data_local.dart';
-import 'i_data_remote.dart';
+import 'data_sources/local/i_db.dart';
+import 'data_sources/remote/i_ss_api.dart';
 
-class RepositoryImp extends IRepository {
-  final IDataRemote dataRemote;
-  final IDataLocal dataLocal;
+class RepositoryImp implements IRepository {
+  final ISSApi sSApi;
+  final IDB db;
 
-  RepositoryImp({required this.dataRemote, required this.dataLocal});
+  final void Function() onSessionExpired;
 
-  @override
-  Future<List<CharacterEntity>> getCharacters() => dataRemote.getCharacters();
-
-  @override
-  Future<void> addCharacterToFavorite(CharacterDetailEntity character) => dataLocal.addCharacterToFavorite(character);
-
-  @override
-  Stream<List<CharacterEntity>> getCharactersFavorites() => dataLocal.getFavoritesCharacters();
+  RepositoryImp({
+    required this.sSApi,
+    required this.db,
+    required this.onSessionExpired,
+  });
 
   @override
-  Future<void> removeCharacterFromFavorite(int idCharacter) => dataLocal.removeCharacterFromFavorite(idCharacter);
+  Future<void> login(UserCredentialsEntity credentials) => sSApi.login(credentials);
 
   @override
-  Future<CharacterDetailEntity> getCharacterDetail(int idCharacter) => dataRemote.getCharacterDetail(idCharacter);
+  Future<List<CharacterEntity>> getCharacters() => sSApi.getCharacters();
 
   @override
-  Future<bool> isCharacterFavorite(int idCharacter) => dataLocal.isCharacterFavorite(idCharacter);
+  Future<void> addCharacterToFavorite(CharacterDetailEntity character) => db.addCharacterToFavorite(character);
+
+  @override
+  Stream<List<CharacterEntity>> getCharactersFavorites() => db.getFavoritesCharacters();
+
+  @override
+  Future<void> removeCharacterFromFavorite(int idCharacter) => db.removeCharacterFromFavorite(idCharacter);
+
+  @override
+  Future<CharacterDetailEntity> getCharacterDetail(int idCharacter) => sSApi.getCharacterDetail(idCharacter);
+
+  @override
+  Future<bool> isCharacterFavorite(int idCharacter) => db.isCharacterFavorite(idCharacter);
 }

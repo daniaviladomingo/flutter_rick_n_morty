@@ -159,11 +159,11 @@ class _$ApiCharacterCopyWithImpl<$Res, $Val extends ApiCharacter>
 }
 
 /// @nodoc
-abstract class _$$_CharacterCopyWith<$Res>
+abstract class _$$CharacterImplCopyWith<$Res>
     implements $ApiCharacterCopyWith<$Res> {
-  factory _$$_CharacterCopyWith(
-          _$_Character value, $Res Function(_$_Character) then) =
-      __$$_CharacterCopyWithImpl<$Res>;
+  factory _$$CharacterImplCopyWith(
+          _$CharacterImpl value, $Res Function(_$CharacterImpl) then) =
+      __$$CharacterImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -187,11 +187,11 @@ abstract class _$$_CharacterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CharacterCopyWithImpl<$Res>
-    extends _$ApiCharacterCopyWithImpl<$Res, _$_Character>
-    implements _$$_CharacterCopyWith<$Res> {
-  __$$_CharacterCopyWithImpl(
-      _$_Character _value, $Res Function(_$_Character) _then)
+class __$$CharacterImplCopyWithImpl<$Res>
+    extends _$ApiCharacterCopyWithImpl<$Res, _$CharacterImpl>
+    implements _$$CharacterImplCopyWith<$Res> {
+  __$$CharacterImplCopyWithImpl(
+      _$CharacterImpl _value, $Res Function(_$CharacterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -210,7 +210,7 @@ class __$$_CharacterCopyWithImpl<$Res>
     Object? url = null,
     Object? created = null,
   }) {
-    return _then(_$_Character(
+    return _then(_$CharacterImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -265,8 +265,8 @@ class __$$_CharacterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Character implements _Character {
-  const _$_Character(
+class _$CharacterImpl implements _Character {
+  const _$CharacterImpl(
       {required this.id,
       required this.name,
       required this.status,
@@ -281,8 +281,8 @@ class _$_Character implements _Character {
       required this.created})
       : _episode = episode;
 
-  factory _$_Character.fromJson(Map<String, dynamic> json) =>
-      _$$_CharacterFromJson(json);
+  factory _$CharacterImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CharacterImplFromJson(json);
 
   @override
   final int id;
@@ -324,7 +324,7 @@ class _$_Character implements _Character {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Character &&
+            other is _$CharacterImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.status, status) || other.status == status) &&
@@ -360,12 +360,12 @@ class _$_Character implements _Character {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CharacterCopyWith<_$_Character> get copyWith =>
-      __$$_CharacterCopyWithImpl<_$_Character>(this, _$identity);
+  _$$CharacterImplCopyWith<_$CharacterImpl> get copyWith =>
+      __$$CharacterImplCopyWithImpl<_$CharacterImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CharacterToJson(
+    return _$$CharacterImplToJson(
       this,
     );
   }
@@ -384,10 +384,10 @@ abstract class _Character implements ApiCharacter {
       required final String image,
       required final List<String> episode,
       required final String url,
-      required final String created}) = _$_Character;
+      required final String created}) = _$CharacterImpl;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
-      _$_Character.fromJson;
+      _$CharacterImpl.fromJson;
 
   @override
   int get id;
@@ -415,6 +415,6 @@ abstract class _Character implements ApiCharacter {
   String get created;
   @override
   @JsonKey(ignore: true)
-  _$$_CharacterCopyWith<_$_Character> get copyWith =>
+  _$$CharacterImplCopyWith<_$CharacterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

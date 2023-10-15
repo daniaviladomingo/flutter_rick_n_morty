@@ -22,8 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "anErrorHasOccurred":
-            MessageLookupByLibrary.simpleMessage("An error has occurred"),
+        "anDomainErrorHasOccurred":
+            MessageLookupByLibrary.simpleMessage("A domain error has occurred"),
+        "anSystemErrorHasOccurred":
+            MessageLookupByLibrary.simpleMessage("A system error has occurred"),
         "characterFavorites":
             MessageLookupByLibrary.simpleMessage("Characters Favorites"),
         "checkAgain": MessageLookupByLibrary.simpleMessage("Check again"),

@@ -1,7 +1,6 @@
 name: common
 description: A starting point for Dart libraries or applications.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
 
 environment:
   sdk: ^3.1.0
@@ -9,6 +8,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
   get_it: ^7.6.4
+  logger: ^2.0.2+1
 
 dev_dependencies:
   lints: ^2.0.0

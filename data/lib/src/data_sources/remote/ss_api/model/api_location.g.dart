@@ -6,13 +6,13 @@ part of 'api_location.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApiLocation _$$_ApiLocationFromJson(Map<String, dynamic> json) =>
-    _$_ApiLocation(
+_$ApiLocationImpl _$$ApiLocationImplFromJson(Map<String, dynamic> json) =>
+    _$ApiLocationImpl(
       name: json['name'] as String,
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$$_ApiLocationToJson(_$_ApiLocation instance) =>
+Map<String, dynamic> _$$ApiLocationImplToJson(_$ApiLocationImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'url': instance.url,

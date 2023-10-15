@@ -1,5 +1,5 @@
 import '../../common.dart';
-
-sealed class DeviceError extends Cause {
-  DeviceError(super.msg);
+sealed class DeviceError implements Cause {
+  const DeviceError(msg);
 }
+
