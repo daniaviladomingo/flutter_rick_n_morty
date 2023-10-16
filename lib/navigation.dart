@@ -6,8 +6,7 @@ import 'package:rick_and_morty/ui/screens/characters_favorites/screen_characters
 enum AppScreens {
   characters("screen_character"),
   charactersFavorite("screen_characters_favorite"),
-  characterDetailFromCharacters("screen_character_detail_from_characters"),
-  characterDetailFromFavorites("screen_character_detail_from_favorites");
+  characterDetail("character_detail");
 
   final String name;
 
@@ -23,7 +22,7 @@ final router = GoRouter(
       routes: [
         GoRoute(
           path: 'detail/:id_character',
-          name: AppScreens.characterDetailFromCharacters.name,
+          name: AppScreens.characterDetail.name,
           builder: (context, state) {
             final int characterId = int.parse(state.pathParameters['id_character']!);
             return ScreenCharacterDetail(idCharacter: characterId);
@@ -33,16 +32,6 @@ final router = GoRouter(
           path: 'favorites',
           name: AppScreens.charactersFavorite.name,
           builder: (context, state) => const ScreenCharactersFavorites(),
-          routes: [
-            GoRoute(
-              path: 'detail_from_favorites/:id_character',
-              name: AppScreens.characterDetailFromFavorites.name,
-              builder: (context, state) {
-                final int characterId = int.parse(state.pathParameters['id_character']!);
-                return ScreenCharacterDetail(idCharacter: characterId);
-              },
-            ),
-          ],
         ),
       ],
     ),
