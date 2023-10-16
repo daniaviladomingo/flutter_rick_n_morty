@@ -3,21 +3,18 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:rick_and_morty/di/di.dart';
 import 'package:rick_and_morty/generated/l10n.dart';
 import 'package:rick_and_morty/navigation.dart';
+import 'package:rick_and_morty/ui/screens/characters/screen_characters.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await initLocator(
-    () {},
-  );
+  await initLocator();
 
-  runApp(MyApp(onSessionExpired: () {}));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final void Function() onSessionExpired;
-
-  const MyApp({super.key, required this.onSessionExpired});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override

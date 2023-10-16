@@ -1,4 +1,5 @@
 import 'package:common/common.dart';
+import 'package:data/src/di/instance_names.dart';
 import 'package:dio/dio.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -16,9 +17,10 @@ import '../data_sources/remote/ss_api/model/mapper/api_character_detail_mapper.d
 import '../data_sources/remote/ss_api/model/mapper/api_character_mapper.dart';
 import '../data_sources/remote/ss_api/ss_api_imp.dart';
 import '../repository_imp.dart';
-import 'instance_names.dart';
 
-Future<void> initDataLocator(void Function() onSessionExpired) async {
+final securedKeyRefreshToken = "secured_key_refresh_token";
+
+Future<void> initDataLocator({required void Function() onSessionExpired}) async {
   final isar = await Isar.open(
     [DbCharacterSchema],
     directory: (await getApplicationDocumentsDirectory()).path,
@@ -61,12 +63,12 @@ Future<void> initDataLocator(void Function() onSessionExpired) async {
     ),
   );
   getIt.registerSingleton<Dio>(Dio(getIt())..interceptors.add(getIt()));
-  getIt.registerSingleton("secured_key_token", instanceName: DataInstanceNames.securedKeyRefreshToken);
   getIt.registerSingleton<ISSApi>(
     DataRemoteImp(
       dio: getIt(),
       secureStorage: getIt(),
-      securedKeyRefreshToken: getIt(instanceName: DataInstanceNames.securedKeyRefreshToken),
+      securedKeyRefreshToken: securedKeyRefreshToken,
+      onSessionExpired: onSessionExpired,
       characterMapper: getIt<Mapper<ApiCharacter, CharacterEntity>>(),
       characterDetailMapper: getIt<Mapper<ApiCharacter, CharacterDetailEntity>>(),
     ),
@@ -77,7 +79,13 @@ Future<void> initDataLocator(void Function() onSessionExpired) async {
     RepositoryImp(
       sSApi: getIt<ISSApi>(),
       db: getIt<IDB>(),
-      onSessionExpired: onSessionExpired,
     ),
+  );
+
+  getIt.registerFactoryAsync<bool>(
+    () async {
+      return await getIt<FlutterSecureStorage>().read(key: securedKeyRefreshToken) != null;
+    },
+    instanceName: DataInstanceNames.isLogged,
   );
 }

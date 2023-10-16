@@ -6,12 +6,9 @@ class RepositoryImp implements IRepository {
   final ISSApi sSApi;
   final IDB db;
 
-  final void Function() onSessionExpired;
-
   RepositoryImp({
     required this.sSApi,
     required this.db,
-    required this.onSessionExpired,
   });
 
   @override

@@ -1,3 +1,3 @@
 abstract class DataInstanceNames {
-  static final securedKeyRefreshToken = "securedKeyRefreshToken";
+  static final isLogged = "isLooged";
 }

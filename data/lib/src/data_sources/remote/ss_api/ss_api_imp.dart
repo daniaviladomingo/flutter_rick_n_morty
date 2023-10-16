@@ -12,6 +12,7 @@ class DataRemoteImp implements ISSApi {
   final Dio dio;
   final FlutterSecureStorage secureStorage;
   final String securedKeyRefreshToken;
+  final void Function() onSessionExpired;
   final Mapper<ApiCharacter, CharacterEntity> characterMapper;
   final Mapper<ApiCharacter, CharacterDetailEntity> characterDetailMapper;
 
@@ -21,6 +22,7 @@ class DataRemoteImp implements ISSApi {
     required this.dio,
     required this.secureStorage,
     required this.securedKeyRefreshToken,
+    required this.onSessionExpired,
     required this.characterMapper,
     required this.characterDetailMapper,
   }) {
@@ -65,11 +67,14 @@ class DataRemoteImp implements ISSApi {
     accessToken = response.data['accessToken'];
     final refreshToken = response.data['refreshToken'];
     await secureStorage.write(key: securedKeyRefreshToken, value: refreshToken);
+    isLogged = true;
   }
+}
 
+extension DataRemoteImpExtension on DataRemoteImp {
   Future<void> refreshToken() async {
     try {
-      final refreshToken = secureStorage.read(key: securedKeyRefreshToken);
+      final refreshToken = await secureStorage.read(key: securedKeyRefreshToken);
       final response = await dio.post(
         "auth/refresh-token",
         options: Options(headers: {"Token": refreshToken}),
@@ -78,8 +83,10 @@ class DataRemoteImp implements ISSApi {
       final newRefreshToken = response.data['refreshToken'];
       await secureStorage.write(key: securedKeyRefreshToken, value: newRefreshToken);
     } catch (_) {
+      isLogged = false;
       accessToken = null;
       await secureStorage.delete(key: securedKeyRefreshToken);
+      onSessionExpired();
     }
   }
 }
